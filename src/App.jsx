@@ -11,6 +11,8 @@ import HashtagWall from "./components/HashtagWall/HashtagWall.jsx"
 import Footer from "./components/Footer/Footer.jsx"
 import CityDetails from "./components/CityDetails/CityDetails.jsx"
 import About from "./components/About/About.jsx"
+import Contact from "./components/Contact/Contact.jsx"
+
 
 function Home(){
   return (
@@ -36,6 +38,7 @@ export default function App(){
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/city/:slug" element={<CityDetails />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </div>
   )
