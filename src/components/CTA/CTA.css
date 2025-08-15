@@ -1,0 +1,23 @@
+.cta-form{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+.cta-form input{
+  width: 300px;
+  max-width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(17,21,28,.6);
+  color: var(--text);
+  outline: none;
+  box-shadow: 0 0 0 0 var(--ring);
+  transition: box-shadow .2s ease, border-color .2s ease;
+}
+.cta-form input:focus{
+  border-color: var(--primary);
+  box-shadow: 0 0 0 6px var(--ring);
+}
