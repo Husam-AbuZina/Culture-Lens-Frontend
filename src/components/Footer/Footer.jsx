@@ -10,9 +10,7 @@ export default function Footer() {
         <div className="col brand">
           <h3 className="logo">Funiro<span className="dot">.</span></h3>
           <address className="addr">
-            400 University Drive Suite 200 Coral<br/>
-            Gables,<br/>
-            FL 33134 USA
+          Hebron, Corner Door, 3rd Floor<br/>
           </address>
         </div>
 
