@@ -100,3 +100,27 @@ export const cities = {
   
   export const getCity = (slug) => cities[slug?.toLowerCase()]
   
+
+  export function getAllCities() {
+    return [
+      {
+        slug: "hebron",
+        name: "Hebron",
+        summary: "Home to the Ibrahimi Mosque and ancient souks.",
+        hero: "/images/HebronMeusuem.jpg",
+      },
+      {
+        slug: "bethlehem",
+        name: "Bethlehem",
+        summary: "Famous for the Church of the Nativity and vibrant streets.",
+        hero: "/images/BethlehemChurch.jpg",
+      },
+      {
+        slug: "jerusalem",
+        name: "Jerusalem",
+        summary: "The Old City, Al-Aqsa Mosque, and historic markets.",
+        hero: "/images/AlAqusa.jpg",
+      },
+    ]
+  }
+  
