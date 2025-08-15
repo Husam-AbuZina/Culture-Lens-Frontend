@@ -12,7 +12,7 @@ import Footer from "./components/Footer/Footer.jsx"
 import CityDetails from "./components/CityDetails/CityDetails.jsx"
 import About from "./components/About/About.jsx"
 import Contact from "./components/Contact/Contact.jsx"
-
+import CitiesPage from "./pages/CitiesPage/CitiesPage.jsx"
 
 function Home(){
   return (
@@ -37,6 +37,7 @@ export default function App(){
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/cities" element={<CitiesPage />} />
         <Route path="/city/:slug" element={<CityDetails />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>

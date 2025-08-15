@@ -20,7 +20,7 @@ export default function Navbar() {
         {/* CENTER: Nav links */}
         <nav className="cl-center" aria-label="Primary">
   <a href="/" className="cl-link">Home</a>
-  <a href="#cities" className="cl-link">Cities</a>
+  <a href="/cities" className="cl-link">Cities</a>
 <a href="/about" className="cl-link">About</a>
 <a href="/contact" className="cl-link">Contact</a>
 </nav>
