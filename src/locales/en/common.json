@@ -314,6 +314,29 @@
           "name": "Jerusalem",
           "summary": "A mosaic of cultures and faiths. Wander its quarters, walls, gates, and ancient streets."
         }
+      },
+      "products": {
+        "title": "Our Products",
+        "showMore": "Show More",
+        "badges": {
+          "new": "New"
+        },
+        "actions": {
+          "add": "Add to cart",
+          "share": "Share",
+          "compare": "Compare",
+          "like": "Like"
+        },
+        "items": {
+          "syltherine": { "sub": "Stylish cafe chair" },
+          "leviosa": { "sub": "Stylish cafe chair" },
+          "lolito": { "sub": "Luxury big sofa" },
+          "respira": { "sub": "Outdoor bar table and stool" },
+          "grifo": { "sub": "Night lamp" },
+          "muggo": { "sub": "Small mug" },
+          "pingky": { "sub": "Cute bed set" },
+          "potty": { "sub": "Minimalist flower pot" }
+        }
       }
   
 }

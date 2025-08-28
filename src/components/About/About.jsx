@@ -7,7 +7,7 @@ export default function About() {
   const { t } = useTranslation()
 
   const stats = [
-    { label: t("about.stats.sites"),  value: "20+" },
+    { label: t("about.stats.sites"),  value: "10+" },
     { label: t("about.stats.cities"), value: "10" },
     { label: t("about.stats.photos"), value: "5k+" },
     { label: t("about.stats.years"),  value: "7" }

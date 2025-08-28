@@ -49,7 +49,7 @@ export default function Heritage({ items }) {
     <section className="heritage">
       {/* Left copy block */}
       <div className="h-left">
-        <h2><span>20+ </span>{t("heritage.title")}</h2>
+        <h2><span>10+ </span>{t("heritage.title")}</h2>
         <p>{t("heritage.sub")}</p>
         <button className="h-btn" onClick={() => (window.location.hash = '#cities')}>
           {t("heritage.cta")}

@@ -21,7 +21,7 @@ function Home(){
         <Hero />
         <Cities />
         <Heritage />
-        <Products />
+        {/* <Products /> */}
         <HashtagWall />
       </main>
       <Footer />
