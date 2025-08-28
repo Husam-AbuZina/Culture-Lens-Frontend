@@ -1,0 +1,342 @@
+{
+    "siteName": "Culture Lens",
+    "nav": {
+      "home": "Home",
+      "map": "Map",
+      "places": "Places",
+      "cities": "Cities",
+      "about": "About Us",
+      "contact": "Contact"
+    },
+    "cta": {
+      "explore": "Explore Now",
+      "learnMore": "Learn More",
+      "viewAll": "View All",
+      "back": "Back"
+    },
+    "common": {
+      "search": "Search",
+      "loading": "Loading...",
+      "noResults": "No Results",
+      "language": "Language"
+    },
+    "city": {
+      "title": "City: {{name}}",
+      "heritagePlaces": "Heritage Places",
+      "overview": "Overview",
+      "photos": "Photos"
+    },
+    "place": {
+      "backToCity": "Back to {{city}}",
+      "location": "Location",
+      "category": "Category",
+      "coordinates": "Coordinates",
+      "description": "Description",
+      "gallery": "Gallery"
+    },
+    "footer": {
+      "rights": "All rights reserved",
+      "poweredBy": "Powered by"
+    },
+    "hero": {
+      "bgAria": "Palestinian flag above the city",
+      "kicker": "New Way",
+      "titleLine1": "Discover Palestine",
+      "titleLine2": "Like Never Before.",
+      "sub": "This is the place where you find everything you need about tourism in Palestine in one place.",
+      "cta": "DISCOVER NOW"
+    },
+    "heritage": {
+        "title": "Ancient heritage Places",
+        "sub": "The history will inspire you about the old cultures and their traditions.",
+        "cta": "Explore More",
+        "next": "Next",
+        "prev": "Previous",
+        "goto": "Go to",
+        "items": {
+          "innerPeace": "Inner Peace",
+          "heishamPalace": "Heisham Palace",
+          "churchOfMahd": "Church of Mahd",
+          "bethlehem": "Bethlehem",
+          "citadelWalls": "Citadel Walls",
+          "jerusalem": "Jerusalem",
+          "mountainOfLocals": "Mountain of Locals",
+          "nablus": "Nablus"
+        }
+  },
+  "hashtag": {
+    "kicker": "Share Your Story",
+    "photo": "Photo",
+    "items": {
+      "dome": "Dome of the Rock",
+      "bethlehemChurch": "Bethlehem Church",
+      "sebastia": "Roman columns Sebastia",
+      "oldTown": "Old city street",
+      "citadel": "Citadel",
+      "market": "Market",
+      "courtyard": "Courtyard",
+      "museum": "Stone interior",
+      "acre": "Historic roofs"
+    }
+  },
+  "gallery": {
+    "title": "Gallery",
+    "sub": "Real UI shots to make your page feel alive.",
+    "alt": "Gallery"
+  },  "footer": {
+    "brand": "location",
+    "address": "Hebron, Corner Door, 3rd Floor",
+    "links": {
+      "title": "Links"
+    },
+    "help": {
+      "title": "Help",
+      "payment": "Payment Options",
+      "returns": "Returns",
+      "privacy": "Privacy Policies"
+    },
+    "newsletter": {
+      "title": "Newsletter",
+      "placeholder": "Enter Your Email Address",
+      "aria": "Email address",
+      "button": "SUBSCRIBE",
+      "subscribed": "Subscribed!"
+    },
+    "rights": "All rights reserved"
+  },
+  "features": {
+    "title": "Features",
+    "sub": "Everything you need to launch quickly and look great.",
+    "badge": "New",
+    "items": {
+      "atomic": {
+        "title": "Atomic Components",
+        "desc": "Small, reusable pieces you can mix and match."
+      },
+      "darkPolish": {
+        "title": "Dark UI Polish",
+        "desc": "Tasteful gradients, soft shadows, and glassy cards."
+      },
+      "animation": {
+        "title": "Animation Ready",
+        "desc": "Subtle framer-motion transitions are built in."
+      },
+      "router": {
+        "title": "Router Built-in",
+        "desc": "React Router scaffolded and ready to go."
+      },
+      "accessible": {
+        "title": "Accessible",
+        "desc": "Semantic HTML, focus styles, and high contrast."
+      },
+      "fast": {
+        "title": "Fast & Lightweight",
+        "desc": "Vite + React for a crisp dev experience."
+      }
+    }
+  },
+  "cta": {
+    "title": "Ready to launch?",
+    "sub": "Drop your email below and we’ll reach out within 24 hours.",
+    "placeholder": "you@example.com",
+    "aria": "Email",
+    "button": "Get in touch",
+    "submitted": "Submitted!"
+  },
+  "contact": {
+    "hero": {
+      "title": "Contact Us",
+      "sub": "Questions, partnerships, or contributions — we’d love to hear from you."
+    },
+    "form": {
+      "name": "Name",
+      "namePh": "Your full name",
+      "email": "Email",
+      "emailPh": "you@example.com",
+      "subject": "Subject",
+      "subjectPh": "How can we help?",
+      "message": "Message",
+      "messagePh": "Tell us a little about your request…",
+      "send": "Send Message",
+      "sending": "Sending…",
+      "disclaimer": "By sending, you agree to our",
+      "privacy": "Privacy Policy"
+    },
+    "errors": {
+      "name": "Please enter your name.",
+      "email": "Enter a valid email.",
+      "subject": "Please add a subject.",
+      "message": "Message must be at least 10 characters."
+    },
+    "status": {
+      "ok": "Thanks! We’ll get back to you soon.",
+      "fallback": "Opening your email app to send the message…"
+    },
+    "mail": { "from": "From" },
+    "info": {
+      "reach": "Reach Us",
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address",
+      "addressVal": "Hebron, Corner Door, 3rd Floor",
+      "hours": "Hours",
+      "sunThu": "Sunday - Thursday",
+      "sat": "Saturday",
+      "fri": "Friday",
+      "closed": "Closed",
+      "mapAlt": "Map placeholder"
+    }
+  },
+  "cityDetails": {
+    "notFound": {
+      "title": "City not found",
+      "hint": "Check the URL or go back to the cities list."
+    },
+    "browseOther": "Browse other cities",
+    "backToCities": "Back to Cities"
+  },
+  "cities": {
+    "title": "Browse The Cities 🧭",
+    "sub": "Every city with its heritage & history within your reach.",
+    "prev": "Previous",
+    "next": "Next",
+    "list": {
+      "hebron": "Hebron",
+      "bethlehem": "Bethlehem",
+      "jerusalem": "Jerusalem"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "About Culture Lens",
+      "sub": "We help you discover Palestine’s heritage—clearly, respectfully, and beautifully.",
+      "cta": "Browse Cities"
+    },
+    "mission": {
+      "title": "Our Mission",
+      "lead": "Preserve, organize, and share cultural heritage through an accessible visual archive. We work with locals, historians, and travelers to keep every detail trustworthy."
+    },
+    "stats": {
+      "sites": "Heritage Sites",
+      "cities": "Cities Covered",
+      "photos": "Photos Curated",
+      "years": "Years Preserving"
+    },
+    "values": {
+      "title": "Our Values",
+      "items": {
+        "auth": { "title": "Authenticity", "desc": "We keep stories accurate—voices of locals first." },
+        "resp": { "title": "Respect", "desc": "Culture comes before clicks. Always." },
+        "access": { "title": "Access", "desc": "Free, simple, multilingual exploration." },
+        "community": { "title": "Community", "desc": "Crowdsourced photos & notes, carefully reviewed." }
+      }
+    },
+    "team": {
+      "title": "Team",
+      "roles": {
+        "ceo": "Founder & CEO",
+        "content": "Content Lead",
+        "engineer": "Engineer",
+        "designer": "Designer"
+      }
+    },
+    "timeline": {
+      "title": "Timeline",
+      "items": {
+        "idea":   { "title": "The Idea",    "desc": "Started documenting hidden heritage spots." },
+        "beta":   { "title": "Beta",        "desc": "First map of cities & places published." },
+        "comm":   { "title": "Community",   "desc": "Opened submissions & verification." },
+        "launch": { "title": "Culture Lens","desc": "Launched the full platform." }
+      }
+    },
+    "end": {
+      "title": "Contribute or Collaborate",
+      "sub": "Have photos or stories to share? Help us enrich the archive.",
+      "cta": "Get in Touch"
+    }
+  },
+  "place": { 
+    "viewDetails": "View details" 
+    },
+     "cities": { 
+        "open": "Open city" 
+    },
+    "cities": {
+      "hebron": {
+        "name": "Hebron",
+        "summary": "Hebron is one of the oldest continuously inhabited cities. Explore its heritage, markets, and historic architecture."
+      },
+      "bethlehem": {
+        "name": "Bethlehem",
+        "summary": "Bethlehem blends ancient heritage with vibrant local life. Iconic churches, old quarters, and crafts."
+      },
+      "jerusalem": {
+        "name": "Jerusalem",
+        "summary": "A mosaic of cultures and faiths. Wander its quarters, walls, gates, and ancient streets."
+      }
+    },
+    "cities": {
+        "title": "Browse The Cities 🧭",
+        "sub": "Every city with its heritage & history within your reach.",
+        "prev": "Previous",
+        "next": "Next",
+        "list": {
+          "hebron": "Hebron",
+          "bethlehem": "Bethlehem",
+          "jerusalem": "Jerusalem"
+        }
+      },
+      "siteName": "Culture Lens",
+      "cityDetails": {
+        "notFound": {
+          "title": "City not found",
+          "hint": "Check the URL or go back to the cities list."
+        },
+        "browseOther": "Browse other cities",
+        "backToCities": "Back to Cities"
+      },
+      "city": {
+        "heritagePlaces": "Heritage Places"
+      },
+      "place": {
+        "viewDetails": "View details"
+      },
+      "citiesDetails": {
+        "hebron": {
+          "name": "Hebron",
+          "summary": "Hebron is one of the oldest continuously inhabited cities. Explore its heritage, markets, and historic architecture."
+        },
+        "bethlehem": {
+          "name": "Bethlehem",
+          "summary": "Bethlehem blends ancient heritage with vibrant local life. Iconic churches, old quarters, and crafts."
+        },
+        "jerusalem": {
+          "name": "Jerusalem",
+          "summary": "A mosaic of cultures and faiths. Wander its quarters, walls, gates, and ancient streets."
+        }
+      },
+      "products": {
+        "title": "Our Products",
+        "showMore": "Show More",
+        "badges": {
+          "new": "New"
+        },
+        "actions": {
+          "add": "Add to cart",
+          "share": "Share",
+          "compare": "Compare",
+          "like": "Like"
+        },
+        "items": {
+          "syltherine": { "sub": "Stylish cafe chair" },
+          "leviosa": { "sub": "Stylish cafe chair" },
+          "lolito": { "sub": "Luxury big sofa" },
+          "respira": { "sub": "Outdoor bar table and stool" },
+          "grifo": { "sub": "Night lamp" },
+          "muggo": { "sub": "Small mug" },
+          "pingky": { "sub": "Cute bed set" },
+          "potty": { "sub": "Minimalist flower pot" }
+        }
+      }
+  
+}
