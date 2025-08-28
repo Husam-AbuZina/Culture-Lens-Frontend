@@ -254,5 +254,66 @@
       "sub": "Have photos or stories to share? Help us enrich the archive.",
       "cta": "Get in Touch"
     }
-  }
+  },
+  "place": { 
+    "viewDetails": "View details" 
+    },
+     "cities": { 
+        "open": "Open city" 
+    },
+    "cities": {
+      "hebron": {
+        "name": "Hebron",
+        "summary": "Hebron is one of the oldest continuously inhabited cities. Explore its heritage, markets, and historic architecture."
+      },
+      "bethlehem": {
+        "name": "Bethlehem",
+        "summary": "Bethlehem blends ancient heritage with vibrant local life. Iconic churches, old quarters, and crafts."
+      },
+      "jerusalem": {
+        "name": "Jerusalem",
+        "summary": "A mosaic of cultures and faiths. Wander its quarters, walls, gates, and ancient streets."
+      }
+    },
+    "cities": {
+        "title": "Browse The Cities 🧭",
+        "sub": "Every city with its heritage & history within your reach.",
+        "prev": "Previous",
+        "next": "Next",
+        "list": {
+          "hebron": "Hebron",
+          "bethlehem": "Bethlehem",
+          "jerusalem": "Jerusalem"
+        }
+      },
+      "siteName": "Culture Lens",
+      "cityDetails": {
+        "notFound": {
+          "title": "City not found",
+          "hint": "Check the URL or go back to the cities list."
+        },
+        "browseOther": "Browse other cities",
+        "backToCities": "Back to Cities"
+      },
+      "city": {
+        "heritagePlaces": "Heritage Places"
+      },
+      "place": {
+        "viewDetails": "View details"
+      },
+      "citiesDetails": {
+        "hebron": {
+          "name": "Hebron",
+          "summary": "Hebron is one of the oldest continuously inhabited cities. Explore its heritage, markets, and historic architecture."
+        },
+        "bethlehem": {
+          "name": "Bethlehem",
+          "summary": "Bethlehem blends ancient heritage with vibrant local life. Iconic churches, old quarters, and crafts."
+        },
+        "jerusalem": {
+          "name": "Jerusalem",
+          "summary": "A mosaic of cultures and faiths. Wander its quarters, walls, gates, and ancient streets."
+        }
+      }
+  
 }

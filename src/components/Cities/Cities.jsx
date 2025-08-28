@@ -6,24 +6,27 @@ import { useTranslation } from 'react-i18next'
 export default function Cities({ items }) {
   const { t } = useTranslation()
 
-  // Default list (localized names) with stable slugs
+  // Default items with translation keys
   const defaultItems = useMemo(() => ([
-    { slug: 'hebron',    name: t('cities.list.hebron'),    img: '/images/HebronMeusuem.jpg' },
-    { slug: 'bethlehem', name: t('cities.list.bethlehem'), img: '/images/BethlehemChurch.jpg' },
-    { slug: 'jerusalem', name: t('cities.list.jerusalem'), img: '/images/AlAqusa.jpg' },
-  ]), [t])
-
-  // If external items provided, prefer their slug; fallback to slugified name
-  const data = useMemo(() => {
-    if (items?.length) {
-      return items.map(it => ({
-        ...it,
-        slug: it.slug || (it.name || '').toLowerCase().replace(/\s+/g,'-')
-      }))
+    {
+      slug: 'hebron',
+      name: t('cities.list.hebron'),
+      img: '/images/HebronMeusuem.jpg'
+    },
+    {
+      slug: 'bethlehem',
+      name: t('cities.list.bethlehem'),
+      img: '/images/BethlehemChurch.jpg'
+    },
+    {
+      slug: 'jerusalem',
+      name: t('cities.list.jerusalem'),
+      img: '/images/AlAqusa.jpg'
     }
-    return defaultItems
-  }, [items, defaultItems])
+  ]), [t])
+  
 
+  const data = items?.length ? items : defaultItems
   const trackRef = useRef(null)
   const [atStart, setAtStart] = useState(true)
   const [atEnd, setAtEnd] = useState(false)
@@ -81,7 +84,7 @@ export default function Cities({ items }) {
           }}
         >
           {data.map((c, i) => (
-            <Link to={`/city/${c.slug}`} className="city-card" key={i}>
+            <Link to={`/city/${c.slug || c.name.toLowerCase()}`} className="city-card" key={i}>
               <figure className="city-figure">
                 <img
                   src={c.img}

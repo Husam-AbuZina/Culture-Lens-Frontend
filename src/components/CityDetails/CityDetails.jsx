@@ -10,7 +10,10 @@ export default function CityDetails(){
   const city = getCity(slug)
 
   useEffect(() => {
-    if (city) document.title = `${city.name} • ${t("siteName")}`
+    if (city) {
+      const cityName = t(`cities.${city.slug}.name`)
+      document.title = `${cityName} • ${t("siteName")}`
+    }
   }, [city, i18n.language, t])
 
   if (!city) {
@@ -23,13 +26,16 @@ export default function CityDetails(){
     )
   }
 
+  const cityName   = t(`citiesDetails.${city.slug}.name`)
+  const citySummary= t(`citiesDetails.${city.slug}.summary`)
+
   return (
     <section className="city-details">
       {/* Hero */}
-      <header className="cd-hero" style={{backgroundImage:`url(${city.hero})`}}>
+      <header className="cd-hero" style={{ backgroundImage: `url(${city.hero})` }}>
         <div className="cd-hero-inner">
-          <h1>{city.name}</h1>
-          <p>{city.summary}</p>
+          <h1>{cityName}</h1>
+          <p>{citySummary}</p>
           <Link className="cd-cta" to="/#cities">{t("cityDetails.browseOther")}</Link>
         </div>
       </header>
@@ -38,7 +44,7 @@ export default function CityDetails(){
       <div className="section cd-gallery">
         {city.gallery.map((src, i) => (
           <figure className="cd-shot" key={i}>
-            <img src={src} alt={`${city.name} ${i+1}`} loading="lazy" />
+            <img src={src} alt={`${cityName} ${i+1}`} loading="lazy" />
           </figure>
         ))}
       </div>
@@ -48,15 +54,21 @@ export default function CityDetails(){
         <h2 className="cd-h2">{t("city.heritagePlaces")}</h2>
         <div className="cd-grid">
           {city.places.map((p, i) => (
-            <article className="cd-card" key={i}>
+            <Link
+              key={p.slug || i}
+              to={`/place/${p.slug}`}
+              className="cd-card"
+              aria-label={`${t("cities.open")} ${p.title}`}
+            >
               <figure className="cd-media">
                 <img src={p.img} alt={p.title} loading="lazy" />
               </figure>
               <div className="cd-info">
                 <h3>{p.title}</h3>
                 <p>{p.desc}</p>
+                <span className="cd-more">{t("place.viewDetails", "View details")} →</span>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </div>
