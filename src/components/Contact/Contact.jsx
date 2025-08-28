@@ -1,9 +1,11 @@
 import React, { useState } from "react"
 import "./Contact.css"
+import { useTranslation } from "react-i18next"
 
 const initial = { name: "", email: "", subject: "", message: "" }
 
 export default function Contact() {
+  const { t } = useTranslation()
   const [form, setForm] = useState(initial)
   const [status, setStatus] = useState({ type: "", msg: "" })
   const [loading, setLoading] = useState(false)
@@ -11,10 +13,10 @@ export default function Contact() {
   const onChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
 
   const validate = () => {
-    if (!form.name.trim()) return "Please enter your name."
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) return "Enter a valid email."
-    if (!form.subject.trim()) return "Please add a subject."
-    if (!form.message.trim() || form.message.trim().length < 10) return "Message must be at least 10 chars."
+    if (!form.name.trim()) return t("contact.errors.name")
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) return t("contact.errors.email")
+    if (!form.subject.trim()) return t("contact.errors.subject")
+    if (!form.message.trim() || form.message.trim().length < 10) return t("contact.errors.message")
     return ""
   }
 
@@ -27,7 +29,6 @@ export default function Contact() {
     setStatus({ type: "", msg: "" })
 
     try {
-      // 👉 Replace with your API/Email service endpoint if you have one
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -35,15 +36,14 @@ export default function Contact() {
       })
       if (!res.ok) throw new Error("Request failed")
 
-      setStatus({ type: "ok", msg: "Thanks! We’ll get back to you soon." })
+      setStatus({ type: "ok", msg: t("contact.status.ok") })
       setForm(initial)
     } catch {
-      // ✉️ Fallback: opens your mail client with prefilled body
       const mailto = `mailto:husamzinap@gmail.com?subject=${encodeURIComponent(form.subject)}&body=${encodeURIComponent(
-        `From: ${form.name} <${form.email}>\n\n${form.message}`
+        `${t("contact.mail.from")}: ${form.name} <${form.email}>\n\n${form.message}`
       )}`
       window.location.href = mailto
-      setStatus({ type: "ok", msg: "Opening your email app to send the message…" })
+      setStatus({ type: "ok", msg: t("contact.status.fallback") })
     } finally {
       setLoading(false)
     }
@@ -54,8 +54,8 @@ export default function Contact() {
       {/* Hero */}
       <header className="contact-hero" style={{ backgroundImage: "url(/images/OldTown.jpg)" }}>
         <div className="contact-hero__inner">
-          <h1>Contact Us</h1>
-          <p>Questions, partnerships, or contributions — we’d love to hear from you.</p>
+          <h1>{t("contact.hero.title")}</h1>
+          <p>{t("contact.hero.sub")}</p>
         </div>
       </header>
 
@@ -65,50 +65,54 @@ export default function Contact() {
         <form className="contact-form card" onSubmit={onSubmit} noValidate>
           <div className="row">
             <label>
-              Name
+              {t("contact.form.name")}
               <input
                 name="name"
                 type="text"
-                placeholder="Your full name"
+                placeholder={t("contact.form.namePh")}
                 value={form.name}
                 onChange={onChange}
                 required
+                aria-label={t("contact.form.name")}
               />
             </label>
             <label>
-              Email
+              {t("contact.form.email")}
               <input
                 name="email"
                 type="email"
-                placeholder="you@example.com"
+                placeholder={t("contact.form.emailPh")}
                 value={form.email}
                 onChange={onChange}
                 required
+                aria-label={t("contact.form.email")}
               />
             </label>
           </div>
 
           <label>
-            Subject
+            {t("contact.form.subject")}
             <input
               name="subject"
               type="text"
-              placeholder="How can we help?"
+              placeholder={t("contact.form.subjectPh")}
               value={form.subject}
               onChange={onChange}
               required
+              aria-label={t("contact.form.subject")}
             />
           </label>
 
           <label>
-            Message
+            {t("contact.form.message")}
             <textarea
               name="message"
               rows={6}
-              placeholder="Tell us a little about your request…"
+              placeholder={t("contact.form.messagePh")}
               value={form.message}
               onChange={onChange}
               required
+              aria-label={t("contact.form.message")}
             />
           </label>
 
@@ -119,37 +123,36 @@ export default function Contact() {
           )}
 
           <button className="btn-primary" type="submit" disabled={loading}>
-            {loading ? "Sending…" : "Send Message"}
+            {loading ? t("contact.form.sending") : t("contact.form.send")}
           </button>
 
           <p className="tiny">
-            By sending, you agree to our <a href="#privacy">Privacy Policy</a>.
+            {t("contact.form.disclaimer")} <a href="#privacy">{t("contact.form.privacy")}</a>.
           </p>
         </form>
 
         {/* Info */}
         <aside className="contact-info">
           <div className="card info-card">
-            <h3>Reach Us</h3>
+            <h3>{t("contact.info.reach")}</h3>
             <ul className="list">
-              <li><strong>Email:</strong> husamzinap@gmail.com</li>
-              <li><strong>Phone:</strong> +970 569683719</li>
-              <li><strong>Address:</strong> Hebron, Corner Door, 3rd Floor</li>
+              <li><strong>{t("contact.info.email")}:</strong> husamzinap@gmail.com</li>
+              <li><strong>{t("contact.info.phone")}:</strong> +970 569683719</li>
+              <li><strong>{t("contact.info.address")}:</strong> {t("contact.info.addressVal")}</li>
             </ul>
           </div>
 
           <div className="card info-card">
-            <h3>Hours</h3>
+            <h3>{t("contact.info.hours")}</h3>
             <ul className="list">
-              <li>Sunday - Thursday: 9:00–18:00</li>
-              <li>Saturday: 10:00–14:00</li>
-              <li>Friday: Closed</li>
+              <li>{t("contact.info.sunThu")}: 9:00–18:00</li>
+              <li>{t("contact.info.sat")}: 10:00–14:00</li>
+              <li>{t("contact.info.fri")}: {t("contact.info.closed")}</li>
             </ul>
           </div>
 
           <div className="map card">
-            {/* Replace the image with an embedded map if you have coordinates */}
-            <img src="/images/placeholder-map.jpg" alt="Map placeholder" />
+            <img src="/images/placeholder-map.jpg" alt={t("contact.info.mapAlt")} />
           </div>
         </aside>
       </div>

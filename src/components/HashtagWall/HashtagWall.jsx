@@ -1,30 +1,33 @@
 import React from 'react'
 import './HashtagWall.css'
+import { useTranslation } from 'react-i18next'
 
 export default function HashtagWall({ photos }) {
+  const { t } = useTranslation();
+
   const items = photos?.length ? photos : [
-    { src: '/images/AlAqusa.jpg', alt: 'Dome of the Rock' },
-    { src: '/images/BethlehemChurch.jpg', alt: 'Bethlehem Church' },
-    { src: '/images/Nablus.jpg', alt: 'Roman columns Sebastia' },
-    { src: '/images/OldTown.jpg', alt: 'Old city street' },
-    { src: '/images/Churches.jpg', alt: 'Citadel' },
-    { src: '/images/Oil Maker.jpg', alt: 'Market' },
-    { src: '/images/HeishamPalace.jpg', alt: 'Courtyard' },
-    { src: '/images/HebronMeusuem.jpg', alt: 'Stone interior' },
-    { src: '/images/Acre.jpg', alt: 'Historic roofs' },
+    { src: '/images/AlAqusa.jpg', alt: t("hashtag.items.dome") },
+    { src: '/images/BethlehemChurch.jpg', alt: t("hashtag.items.bethlehemChurch") },
+    { src: '/images/Nablus.jpg', alt: t("hashtag.items.sebastia") },
+    { src: '/images/OldTown.jpg', alt: t("hashtag.items.oldTown") },
+    { src: '/images/Churches.jpg', alt: t("hashtag.items.citadel") },
+    { src: '/images/Oil Maker.jpg', alt: t("hashtag.items.market") },
+    { src: '/images/HeishamPalace.jpg', alt: t("hashtag.items.courtyard") },
+    { src: '/images/HebronMeusuem.jpg', alt: t("hashtag.items.museum") },
+    { src: '/images/Acre.jpg', alt: t("hashtag.items.acre") }
   ]
 
   return (
     <section className="wall">
       <div className="wall-head">
-        <div className="kicker">Share Your Story</div>
+        <div className="kicker">{t("hashtag.kicker")}</div>
         <h2>#Culture_Lens</h2>
       </div>
 
       <div className="masonry">
         {items.map((p, i) => (
           <figure className="tile" key={i}>
-            <img src={p.src} alt={p.alt || `photo ${i + 1}`} loading="lazy" />
+            <img src={p.src} alt={p.alt || `${t("hashtag.photo")} ${i + 1}`} loading="lazy" />
           </figure>
         ))}
       </div>

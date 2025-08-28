@@ -1,12 +1,22 @@
 import React from 'react'
 import './Navbar.css';
+import { useTranslation } from 'react-i18next';
 
 export default function Navbar() {
+  const { t, i18n } = useTranslation();
+
+  const toggleLanguage = () => {
+    const newLang = i18n.language.startsWith("ar") ? "en" : "ar";
+    i18n.changeLanguage(newLang);
+    document.documentElement.lang = newLang;
+    document.documentElement.dir = newLang === "ar" ? "rtl" : "ltr";
+  };
+
   return (
     <header className="navbar cl-nav">
       <div className="section cl-wrap">
         {/* LEFT: Logo */}
-        <a href="/" className="cl-brand" aria-label="Culture Lens home">
+        <a href="/" className="cl-brand" aria-label={t("siteName")}>
           <span className="cl-logo" aria-hidden>
             {/* magnifying glass */}
             <svg viewBox="0 0 24 24" width="28" height="28" fill="none">
@@ -14,19 +24,24 @@ export default function Navbar() {
               <path d="M16.5 16.5L21 21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
             </svg>
           </span>
-          <span className="cl-name">Culture Lens</span>
+          <span className="cl-name">{t("siteName")}</span>
         </a>
 
         {/* CENTER: Nav links */}
         <nav className="cl-center" aria-label="Primary">
-  <a href="/" className="cl-link">Home</a>
-  <a href="/cities" className="cl-link">Cities</a>
-<a href="/about" className="cl-link">About</a>
-<a href="/contact" className="cl-link">Contact</a>
-</nav>
+          <a href="/" className="cl-link">{t("nav.home")}</a>
+          <a href="/cities" className="cl-link">{t("nav.cities")}</a>
+          <a href="/about" className="cl-link">{t("nav.about")}</a>
+          <a href="/contact" className="cl-link">{t("nav.contact")}</a>
+        </nav>
 
         {/* RIGHT: Icons */}
         <div className="cl-right" aria-label="Quick actions">
+          {/* 🌐 Language toggle */}
+          <button className="icon-btn" aria-label="Toggle Language" onClick={toggleLanguage}>
+            {i18n.language.startsWith("ar") ? "EN" : "ع"}
+          </button>
+
           <button className="icon-btn" aria-label="Account">
             {/* user */}
             <svg viewBox="0 0 24 24" width="24" height="24" fill="none">

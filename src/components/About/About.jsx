@@ -1,34 +1,37 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import "./About.css"
+import { useTranslation } from "react-i18next"
 
 export default function About() {
+  const { t } = useTranslation()
+
   const stats = [
-    { label: "Heritage Sites", value: "20+" },
-    { label: "Cities Covered", value: "10" },
-    { label: "Photos Curated", value: "5k+" },
-    { label: "Years Preserving", value: "7" },
+    { label: t("about.stats.sites"),  value: "20+" },
+    { label: t("about.stats.cities"), value: "10" },
+    { label: t("about.stats.photos"), value: "5k+" },
+    { label: t("about.stats.years"),  value: "7" }
   ]
 
   const values = [
-    { title: "Authenticity", desc: "We keep stories accurate—voices of locals first." },
-    { title: "Respect", desc: "Culture comes before clicks. Always." },
-    { title: "Access", desc: "Free, simple, multilingual exploration." },
-    { title: "Community", desc: "Crowdsourced photos & notes, carefully reviewed." },
+    { title: t("about.values.items.auth.title"), desc: t("about.values.items.auth.desc") },
+    { title: t("about.values.items.resp.title"), desc: t("about.values.items.resp.desc") },
+    { title: t("about.values.items.access.title"), desc: t("about.values.items.access.desc") },
+    { title: t("about.values.items.community.title"), desc: t("about.values.items.community.desc") }
   ]
 
   const team = [
-    { name: "Husam", role: "Founder & CEO", img: "/images/team1.jpg" },
-    { name: "Lina", role: "Content Lead",   img: "/images/team2.jpg" },
-    { name: "Omar", role: "Engineer",       img: "/images/team3.jpg" },
-    { name: "Maya", role: "Designer",       img: "/images/team4.jpg" },
+    { name: "Husam", role: t("about.team.roles.ceo"),   img: "/images/team1.jpg" },
+    { name: "Lina",  role: t("about.team.roles.content"), img: "/images/team2.jpg" },
+    { name: "Omar",  role: t("about.team.roles.engineer"), img: "/images/team3.jpg" },
+    { name: "Maya",  role: t("about.team.roles.designer"), img: "/images/team4.jpg" }
   ]
 
   const timeline = [
-    { year: "2018", title: "The Idea", desc: "Started documenting hidden heritage spots." },
-    { year: "2020", title: "Beta",     desc: "First map of cities & places published." },
-    { year: "2023", title: "Community",desc: "Opened submissions & verification." },
-    { year: "2025", title: "Culture Lens", desc: "Launched the full platform." },
+    { year: "2018", title: t("about.timeline.items.idea.title"),  desc: t("about.timeline.items.idea.desc") },
+    { year: "2020", title: t("about.timeline.items.beta.title"),  desc: t("about.timeline.items.beta.desc") },
+    { year: "2023", title: t("about.timeline.items.comm.title"),  desc: t("about.timeline.items.comm.desc") },
+    { year: "2025", title: t("about.timeline.items.launch.title"),desc: t("about.timeline.items.launch.desc") }
   ]
 
   return (
@@ -36,20 +39,16 @@ export default function About() {
       {/* HERO */}
       <header className="about-hero" style={{ backgroundImage: "url(/images/OldTown.jpg)" }}>
         <div className="about-hero__inner">
-          <h1>About Culture Lens</h1>
-          <p>We help you discover Palestine’s heritage—clearly, respectfully, and beautifully.</p>
-          <Link className="about-cta" to="/#cities">Browse Cities</Link>
+          <h1>{t("about.hero.title")}</h1>
+          <p>{t("about.hero.sub")}</p>
+          <Link className="about-cta" to="/#cities">{t("about.hero.cta")}</Link>
         </div>
       </header>
 
       {/* MISSION */}
       <div className="section">
-        <h2>🎯 Our Mission</h2>
-        <p className="lead">
-          Preserve, organize, and share cultural heritage through an accessible visual archive.
-          We work with locals, historians, and travelers to keep every detail trustworthy.
-        </p>
-
+        <h2>🎯 {t("about.mission.title")}</h2>
+        <p className="lead">{t("about.mission.lead")}</p>
         <div className="about-stats">
           {stats.map((s, i) => (
             <div key={i} className="stat card">
@@ -62,7 +61,7 @@ export default function About() {
 
       {/* VALUES */}
       <div className="section">
-        <h2>🧭 Our Values</h2>
+        <h2>🧭 {t("about.values.title")}</h2>
         <div className="about-values">
           {values.map((v, i) => (
             <article key={i} className="value card">
@@ -75,7 +74,7 @@ export default function About() {
 
       {/* TEAM */}
       <div className="section">
-        <h2>👥 Team</h2>
+        <h2>👥 {t("about.team.title")}</h2>
         <div className="about-team">
           {team.map((m, i) => (
             <article className="member card" key={i}>
@@ -98,14 +97,14 @@ export default function About() {
 
       {/* TIMELINE */}
       <div className="section">
-        <h2>🗓️ Timeline</h2>
+        <h2>🗓️ {t("about.timeline.title")}</h2>
         <div className="about-timeline">
-          {timeline.map((t, i) => (
+          {timeline.map((tItem, i) => (
             <div className="t-item" key={i}>
-              <div className="t-year">{t.year}</div>
+              <div className="t-year">{tItem.year}</div>
               <div className="t-card card">
-                <h3>{t.title}</h3>
-                <p>{t.desc}</p>
+                <h3>{tItem.title}</h3>
+                <p>{tItem.desc}</p>
               </div>
             </div>
           ))}
@@ -114,9 +113,9 @@ export default function About() {
 
       {/* CTA */}
       <div className="section about-end">
-        <h2>📬 Contribute or Collaborate</h2>
-        <p>Have photos or stories to share? Help us enrich the archive.</p>
-        <Link className="about-cta ghost" to="/#contact">Get in Touch</Link>
+        <h2>📬 {t("about.end.title")}</h2>
+        <p>{t("about.end.sub")}</p>
+        <Link className="about-cta ghost" to="/#contact">{t("about.end.cta")}</Link>
       </div>
     </section>
   )

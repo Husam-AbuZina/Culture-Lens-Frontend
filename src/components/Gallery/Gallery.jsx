@@ -1,5 +1,6 @@
 import './Gallery.css'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 const images = [
   'https://images.unsplash.com/photo-1522199710521-72d69614c702?q=80&w=1200&auto=format&fit=crop',
@@ -11,14 +12,20 @@ const images = [
 ]
 
 export default function Gallery(){
+  const { t } = useTranslation()
   return (
     <section className="section" id="gallery">
-      <h2>Gallery</h2>
-      <p>Real UI shots to make your page feel alive.</p>
+      <h2>{t('gallery.title')}</h2>
+      <p>{t('gallery.sub')}</p>
       <div className="grid grid-3">
         {images.map((src, i) => (
           <figure key={i} className="card" style={{padding:0, overflow:'hidden'}}>
-            <img src={src} alt={`Gallery ${i+1}`} style={{width:'100%', height:220, objectFit:'cover'}} />
+            <img
+              src={src}
+              alt={`${t('gallery.alt')} ${i+1}`}
+              style={{width:'100%', height:220, objectFit:'cover'}}
+              loading="lazy"
+            />
           </figure>
         ))}
       </div>

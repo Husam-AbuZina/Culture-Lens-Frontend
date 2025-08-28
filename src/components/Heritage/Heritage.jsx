@@ -1,29 +1,32 @@
 import React, { useMemo, useRef, useState, useEffect } from 'react'
 import './Heritage.css'
+import { useTranslation } from 'react-i18next'
 
 export default function Heritage({ items }) {
+  const { t } = useTranslation();
+
   const data = useMemo(() => items?.length ? items : [
     {
-      title: 'Inner Peace',
-      place: 'Heisham Palace',
+      title: t("heritage.items.innerPeace"),
+      place: t("heritage.items.heishamPalace"),
       img: '/images/HeishamPalace.jpg'
     },
     {
-      title: 'Church of Mahd',
-      place: 'Bethlehem',
+      title: t("heritage.items.churchOfMahd"),
+      place: t("heritage.items.bethlehem"),
       img: '/images/BethlehemChurch.jpg'
     },
     {
-      title: 'Citadel Walls',
-      place: 'Jerusalem',
+      title: t("heritage.items.citadelWalls"),
+      place: t("heritage.items.jerusalem"),
       img: '/images/Churches2.jpg'
     },
     {
-      title: 'Mountain of Locals',
-      place: 'Nablus',
+      title: t("heritage.items.mountainOfLocals"),
+      place: t("heritage.items.nablus"),
       img: '/images/Nablus.jpg'
     },
-  ], [items])
+  ], [items, t])
 
   const bigRef = useRef(null)
   const smRef = useRef(null)
@@ -46,12 +49,10 @@ export default function Heritage({ items }) {
     <section className="heritage">
       {/* Left copy block */}
       <div className="h-left">
-        <h2><span>20+ </span>Ancient<br/>heritage Places</h2>
-        <p>
-          The history will inspire you about the old cultures and their traditions.
-        </p>
+        <h2><span>20+ </span>{t("heritage.title")}</h2>
+        <p>{t("heritage.sub")}</p>
         <button className="h-btn" onClick={() => (window.location.hash = '#cities')}>
-          Explore More
+          {t("heritage.cta")}
         </button>
       </div>
 
@@ -71,7 +72,7 @@ export default function Heritage({ items }) {
                   </div>
                   <div className="h-cap-bottom">
                     <strong className="cap-title">{it.title}</strong>
-                    <button className="cap-arrow" onClick={next} aria-label="Next">→</button>
+                    <button className="cap-arrow" onClick={next} aria-label={t("heritage.next")}>→</button>
                   </div>
                 </figcaption>
               </figure>
@@ -85,7 +86,7 @@ export default function Heritage({ items }) {
                 <img src={it.img} alt={it.place} loading="lazy" />
               </figure>
             ))}
-            <button className="thumb-next" onClick={next} aria-label="Next">›</button>
+            <button className="thumb-next" onClick={next} aria-label={t("heritage.next")}>›</button>
           </div>
         </div>
 
@@ -95,7 +96,7 @@ export default function Heritage({ items }) {
             <button
               key={i}
               className={`dot ${i === idx ? 'is-active' : ''}`}
-              aria-label={`Go to ${i + 1}`}
+              aria-label={`${t("heritage.goto")} ${i + 1}`}
               onClick={() => setIdx(i)}
             />
           ))}
@@ -103,8 +104,8 @@ export default function Heritage({ items }) {
 
         {/* Mobile arrows */}
         <div className="h-arrows">
-          <button onClick={prev} aria-label="Previous">‹</button>
-          <button onClick={next} aria-label="Next">›</button>
+          <button onClick={prev} aria-label={t("heritage.prev")}>‹</button>
+          <button onClick={next} aria-label={t("heritage.next")}>›</button>
         </div>
       </div>
     </section>
