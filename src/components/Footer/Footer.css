@@ -1,12 +1,136 @@
-.cl-footer { margin-top: 60px; padding: 64px max(20px, calc((100vw - 1180px) / 2)) 24px; background: var(--ink); color: #fff; }
-.cl-footer-grid { display: grid; grid-template-columns: 1.7fr 1fr 1fr; gap: 50px; padding-bottom: 54px; }
-.footer-logo { display: inline-flex; align-items: center; gap: 12px; color: #fff; text-decoration: none; font-size: 1.35rem; font-weight: 900; }
-.footer-logo img { width: 64px; height: 64px; border-radius: 50%; }
-.footer-brand p { max-width: 42ch; margin-top: 18px; color: #c9d0d2; }
-.footer-column { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
-.footer-column h2 { color: #fff; font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
-.footer-column a { color: #d9dede; text-decoration: none; }
-.footer-column a:hover { color: #fff; text-decoration: underline; }
-.fineprint { padding-top: 22px; border-top: 1px solid rgba(255, 255, 255, 0.15); color: #adb7ba; font-size: 0.9rem; }
-@media (max-width: 760px) { .cl-footer-grid { grid-template-columns: 1fr 1fr; } .footer-brand { grid-column: 1 / -1; } }
-@media (max-width: 480px) { .cl-footer-grid { grid-template-columns: 1fr; } .footer-brand { grid-column: auto; } }
+.cl-footer {
+  margin-top: 0;
+  padding: 82px max(32px, calc((100vw - 1320px) / 2)) 28px;
+  background: var(--ink);
+  color: #fff;
+}
+
+.cl-footer::before {
+  content: "CULTURE LENS";
+  display: block;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-family: var(--serif);
+  font-size: clamp(3.5rem, 12vw, 10.5rem);
+  font-weight: 500;
+  letter-spacing: -0.065em;
+  line-height: 0.8;
+}
+
+.cl-footer-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) 1fr 1fr;
+  gap: 0;
+  padding: 48px 0 64px;
+}
+
+.footer-brand,
+.footer-column {
+  min-height: 240px;
+  padding: 0 34px;
+  border-inline-end: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.footer-brand {
+  padding-inline-start: 0;
+}
+
+.footer-column:last-child {
+  border-inline-end: 0;
+}
+
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.footer-logo img {
+  width: 54px;
+  height: 54px;
+  filter: brightness(0) invert(1);
+}
+
+.footer-brand p {
+  max-width: 42ch;
+  margin-top: 28px;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.footer-column h2 {
+  margin-bottom: 18px;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: inherit;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.footer-column a {
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+}
+
+.footer-column a:hover {
+  color: #fff;
+}
+
+.fineprint {
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.78rem;
+}
+
+[dir="rtl"] .cl-footer::before {
+  content: "عدسة الثقافة";
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+  letter-spacing: 0;
+}
+
+@media (max-width: 760px) {
+  .cl-footer {
+    padding-inline: 20px;
+  }
+
+  .cl-footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+    min-height: auto;
+    margin-bottom: 36px;
+    padding: 0 0 36px;
+    border-inline-end: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  }
+}
+
+@media (max-width: 480px) {
+  .cl-footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-column {
+    min-height: auto;
+    padding: 28px 0;
+    border-inline-end: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  }
+}

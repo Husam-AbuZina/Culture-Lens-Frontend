@@ -1,114 +1,72 @@
-import { useMemo, useRef, useState, useEffect } from 'react'
+import { useMemo, useState } from "react"
 import { Link } from "react-router-dom"
-import './Heritage.css'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from "react-i18next"
+import "./Heritage.css"
 
 export default function Heritage({ items }) {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
+  const [index, setIndex] = useState(0)
 
   const data = useMemo(() => items?.length ? items : [
-    {
-      title: t("heritage.items.innerPeace"),
-      place: t("heritage.items.heishamPalace"),
-      img: '/images/HeishamPalace.jpg'
-    },
-    {
-      title: t("heritage.items.churchOfMahd"),
-      place: t("heritage.items.bethlehem"),
-      img: '/images/BethlehemChurch.jpg'
-    },
-    {
-      title: t("heritage.items.citadelWalls"),
-      place: t("heritage.items.jerusalem"),
-      img: '/images/Churches2.jpg'
-    },
-    {
-      title: t("heritage.items.mountainOfLocals"),
-      place: t("heritage.items.nablus"),
-      img: '/images/Nablus.jpg'
-    },
+    { title: t("heritage.items.innerPeace"), place: t("heritage.items.heishamPalace"), img: "/images/HeishamPalace.jpg" },
+    { title: t("heritage.items.churchOfMahd"), place: t("heritage.items.bethlehem"), img: "/images/BethlehemChurch.jpg" },
+    { title: t("heritage.items.citadelWalls"), place: t("heritage.items.jerusalem"), img: "/images/Churches2.jpg" },
+    { title: t("heritage.items.mountainOfLocals"), place: t("heritage.items.nablus"), img: "/images/Nablus.jpg" },
   ], [items, t])
 
-  const bigRef = useRef(null)
-  const smRef = useRef(null)
-  const [idx, setIdx] = useState(0)
-
-  const next = () => setIdx(i => (i + 1) % data.length)
-  const prev = () => setIdx(i => (i - 1 + data.length) % data.length)
-
-  useEffect(() => {
-    const scrollToIndex = (el) => {
-      if (!el) return
-      const w = el.clientWidth
-      el.scrollTo({ left: w * idx, behavior: 'smooth' })
-    }
-    scrollToIndex(bigRef.current)
-    scrollToIndex(smRef.current)
-  }, [idx])
+  const active = data[index]
+  const next = () => setIndex((value) => (value + 1) % data.length)
+  const previous = () => setIndex((value) => (value - 1 + data.length) % data.length)
 
   return (
     <section className="heritage">
-      {/* Left copy block */}
-      <div className="h-left">
+      <div className="heritage-heading">
+        <span className="heritage-mark">✦</span>
         <span className="eyebrow">{t("hashtag.kicker")}</span>
         <h2>{t("heritage.title")}</h2>
         <p>{t("heritage.sub")}</p>
-        <Link className="h-btn" to="/cities">
-          {t("heritage.cta")}
-        </Link>
+        <Link className="text-link" to="/cities">{t("heritage.cta")} ↗</Link>
       </div>
 
-      {/* Right gallery */}
-      <div className="h-right">
-        <div className="h-gallery">
-          {/* Big slider */}
-          <div className="h-big" ref={bigRef}>
-            {data.map((it, i) => (
-              <figure key={i} className="h-slide">
-                <img src={it.img} alt={it.place} loading="lazy" />
-                <figcaption className="h-cap">
-                  <div className="h-cap-top">
-                    <span className="num">{String(i + 1).padStart(2, '0')}</span>
-                    <span className="dash" />
-                    <span className="place">{it.place}</span>
-                  </div>
-                  <div className="h-cap-bottom">
-                    <strong className="cap-title">{it.title}</strong>
-                    <button className="cap-arrow" onClick={next} aria-label={t("heritage.next")}>→</button>
-                  </div>
-                </figcaption>
-              </figure>
+      <div className="heritage-stage">
+        <figure className="heritage-image">
+          <img src={active.img} alt={active.place} />
+          <figcaption>
+            <span>{String(index + 1).padStart(2, "0")} / {String(data.length).padStart(2, "0")}</span>
+            <div>
+              <strong>{active.place}</strong>
+              <em>{active.title}</em>
+            </div>
+          </figcaption>
+        </figure>
+
+        <div className="heritage-controls">
+          <button onClick={previous} aria-label={t("heritage.prev")}>←</button>
+          <div className="heritage-progress">
+            {data.map((item, itemIndex) => (
+              <button
+                key={item.place}
+                className={itemIndex === index ? "is-active" : ""}
+                aria-label={`${t("heritage.goto")} ${itemIndex + 1}`}
+                onClick={() => setIndex(itemIndex)}
+              />
             ))}
           </div>
-
-          {/* Small slider */}
-          <div className="h-small" ref={smRef}>
-            {data.map((it, i) => (
-              <figure key={i} className="h-thumb">
-                <img src={it.img} alt={it.place} loading="lazy" />
-              </figure>
-            ))}
-            <button className="thumb-next" onClick={next} aria-label={t("heritage.next")}>›</button>
-          </div>
+          <button onClick={next} aria-label={t("heritage.next")}>→</button>
         </div>
+      </div>
 
-        {/* Dots */}
-        <div className="h-dots">
-          {data.map((_, i) => (
-            <button
-              key={i}
-              className={`dot ${i === idx ? 'is-active' : ''}`}
-              aria-label={`${t("heritage.goto")} ${i + 1}`}
-              onClick={() => setIdx(i)}
-            />
-          ))}
-        </div>
-
-        {/* Mobile arrows */}
-        <div className="h-arrows">
-          <button onClick={prev} aria-label={t("heritage.prev")}>‹</button>
-          <button onClick={next} aria-label={t("heritage.next")}>›</button>
-        </div>
+      <div className="heritage-index">
+        {data.map((item, itemIndex) => (
+          <button
+            className={itemIndex === index ? "is-active" : ""}
+            key={item.place}
+            onClick={() => setIndex(itemIndex)}
+          >
+            <span>0{itemIndex + 1}</span>
+            <strong>{item.place}</strong>
+          </button>
+        ))}
       </div>
     </section>
   )
