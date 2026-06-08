@@ -22,6 +22,8 @@ This runs ESLint, content/data tests, and the production Vite build.
 - City and place routing data: `src/data/cities.js`
 - English content: `src/locales/en/common.json`
 - Arabic content: `src/locales/ar/common.json`
+- English legal content: `src/locales/en/legal.json`
+- Arabic legal content: `src/locales/ar/legal.json`
 - Public imagery and logo: `public/`
 
 Every place requires a unique slug, a city association, local image paths, and matching English/Arabic translation entries. The tests enforce these contracts.

@@ -226,26 +226,6 @@
     "terms": "Terms of use",
     "rights": "All rights reserved."
   },
-  "legal": {
-    "privacy": {
-      "title": "Privacy policy",
-      "intro": "This page explains how the current Culture Lens website handles visitor information.",
-      "sections": [
-        { "title": "Information you provide", "text": "The website does not currently store contact submissions. The contact form opens an email draft in your chosen mail application." },
-        { "title": "Analytics and cookies", "text": "The current website does not intentionally install analytics or advertising cookies." },
-        { "title": "Future changes", "text": "If forms, accounts, analytics, or community submissions are introduced, this notice should be updated before those features launch." }
-      ]
-    },
-    "terms": {
-      "title": "Terms of use",
-      "intro": "Culture Lens is an evolving cultural guide and prototype.",
-      "sections": [
-        { "title": "Editorial status", "text": "Content is provided for general cultural discovery and should be independently reviewed before academic, legal, or professional use." },
-        { "title": "Images and attribution", "text": "Project owners should confirm rights and attribution for every image before public launch." },
-        { "title": "Contributions", "text": "A reviewed submission and licensing process will be required before community-contributed material is published." }
-      ]
-    }
-  },
   "notFound": {
     "title": "Page not found",
     "text": "The page may have moved or is not part of Culture Lens yet.",

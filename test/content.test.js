@@ -56,3 +56,29 @@ test("all active city and place translations exist", () => {
     }
   }
 })
+
+test("legal policies have matching bilingual sections and metadata", () => {
+  const en = readJson("src/locales/en/legal.json")
+  const ar = readJson("src/locales/ar/legal.json")
+
+  for (const type of ["privacy", "terms"]) {
+    assert.ok(en[type].effectiveDate)
+    assert.ok(ar[type].effectiveDate)
+    assert.equal(ar[type].sections.length, en[type].sections.length)
+    assert.deepEqual(
+      ar[type].sections.map((section) => section.id),
+      en[type].sections.map((section) => section.id),
+    )
+
+    for (const locale of [en, ar]) {
+      for (const section of locale[type].sections) {
+        assert.ok(section.id)
+        assert.ok(section.title)
+        assert.ok(section.paragraphs?.length > 0)
+      }
+    }
+  }
+
+  assert.equal(en.privacy.sections.length, 20)
+  assert.ok(en.terms.sections.length >= 22)
+})
