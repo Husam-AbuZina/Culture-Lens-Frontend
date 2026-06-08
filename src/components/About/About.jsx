@@ -1,122 +1,73 @@
-import React from "react"
 import { Link } from "react-router-dom"
-import "./About.css"
 import { useTranslation } from "react-i18next"
+import PageMeta from "../PageMeta/PageMeta"
+import "./About.css"
 
 export default function About() {
   const { t } = useTranslation()
-
-  const stats = [
-    { label: t("about.stats.sites"),  value: "10+" },
-    { label: t("about.stats.cities"), value: "10" },
-    { label: t("about.stats.photos"), value: "5k+" },
-    { label: t("about.stats.years"),  value: "7" }
-  ]
-
-  const values = [
-    { title: t("about.values.items.auth.title"), desc: t("about.values.items.auth.desc") },
-    { title: t("about.values.items.resp.title"), desc: t("about.values.items.resp.desc") },
-    { title: t("about.values.items.access.title"), desc: t("about.values.items.access.desc") },
-    { title: t("about.values.items.community.title"), desc: t("about.values.items.community.desc") }
-  ]
-
-  const team = [
-    { name: "Husam", role: t("about.team.roles.ceo"),   img: "/images/team1.jpg" },
-    { name: "Lina",  role: t("about.team.roles.content"), img: "/images/team2.jpg" },
-    { name: "Omar",  role: t("about.team.roles.engineer"), img: "/images/team3.jpg" },
-    { name: "Maya",  role: t("about.team.roles.designer"), img: "/images/team4.jpg" }
-  ]
-
-  const timeline = [
-    { year: "2018", title: t("about.timeline.items.idea.title"),  desc: t("about.timeline.items.idea.desc") },
-    { year: "2020", title: t("about.timeline.items.beta.title"),  desc: t("about.timeline.items.beta.desc") },
-    { year: "2023", title: t("about.timeline.items.comm.title"),  desc: t("about.timeline.items.comm.desc") },
-    { year: "2025", title: t("about.timeline.items.launch.title"),desc: t("about.timeline.items.launch.desc") }
-  ]
+  const values = t("about.values.items", { returnObjects: true })
+  const milestones = t("about.timeline.items", { returnObjects: true })
 
   return (
-    <section className="about">
-      {/* HERO */}
+    <main className="about">
+      <PageMeta title={t("about.hero.title")} description={t("about.hero.sub")} />
       <header className="about-hero" style={{ backgroundImage: "url(/images/OldTown.jpg)" }}>
+        <div className="hero-overlay" />
         <div className="about-hero__inner">
+          <span className="eyebrow">{t("about.hero.eyebrow")}</span>
           <h1>{t("about.hero.title")}</h1>
           <p>{t("about.hero.sub")}</p>
-          <Link className="about-cta" to="/#cities">{t("about.hero.cta")}</Link>
+          <Link className="button-link" to="/cities">{t("about.hero.cta")}</Link>
         </div>
       </header>
 
-      {/* MISSION */}
-      <div className="section">
-        <h2>🎯 {t("about.mission.title")}</h2>
+      <section className="section about-mission">
+        <div>
+          <span className="eyebrow">{t("about.mission.eyebrow")}</span>
+          <h2>{t("about.mission.title")}</h2>
+        </div>
         <p className="lead">{t("about.mission.lead")}</p>
-        <div className="about-stats">
-          {stats.map((s, i) => (
-            <div key={i} className="stat card">
-              <div className="val">{s.value}</div>
-              <div className="lbl">{s.label}</div>
-            </div>
-          ))}
-        </div>
-      </div>
+      </section>
 
-      {/* VALUES */}
-      <div className="section">
-        <h2>🧭 {t("about.values.title")}</h2>
+      <section className="section">
+        <div className="section-heading align-start">
+          <span className="eyebrow">{t("about.values.eyebrow")}</span>
+          <h2>{t("about.values.title")}</h2>
+        </div>
         <div className="about-values">
-          {values.map((v, i) => (
-            <article key={i} className="value card">
-              <h3>{v.title}</h3>
-              <p>{v.desc}</p>
+          {values.map((value, index) => (
+            <article className="value card" key={value.title}>
+              <span className="value-number">0{index + 1}</span>
+              <h3>{value.title}</h3>
+              <p>{value.description}</p>
             </article>
           ))}
         </div>
-      </div>
+      </section>
 
-      {/* TEAM */}
-      <div className="section">
-        <h2>👥 {t("about.team.title")}</h2>
-        <div className="about-team">
-          {team.map((m, i) => (
-            <article className="member card" key={i}>
-              <figure className="avatar">
-                <img
-                  src={m.img}
-                  alt={m.name}
-                  onError={(e)=>{ e.currentTarget.src = "/images/placeholder.jpg" }}
-                  loading="lazy"
-                />
-              </figure>
-              <div className="meta">
-                <h3>{m.name}</h3>
-                <p>{m.role}</p>
-              </div>
-            </article>
-          ))}
+      <section className="section">
+        <div className="section-heading align-start">
+          <span className="eyebrow">{t("about.timeline.eyebrow")}</span>
+          <h2>{t("about.timeline.title")}</h2>
         </div>
-      </div>
-
-      {/* TIMELINE */}
-      <div className="section">
-        <h2>🗓️ {t("about.timeline.title")}</h2>
         <div className="about-timeline">
-          {timeline.map((tItem, i) => (
-            <div className="t-item" key={i}>
-              <div className="t-year">{tItem.year}</div>
+          {milestones.map((item) => (
+            <article className="t-item" key={item.year}>
+              <div className="t-year">{item.year}</div>
               <div className="t-card card">
-                <h3>{tItem.title}</h3>
-                <p>{tItem.desc}</p>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
               </div>
-            </div>
+            </article>
           ))}
         </div>
-      </div>
+      </section>
 
-      {/* CTA */}
-      <div className="section about-end">
-        <h2>📬 {t("about.end.title")}</h2>
+      <section className="section about-end">
+        <h2>{t("about.end.title")}</h2>
         <p>{t("about.end.sub")}</p>
-        <Link className="about-cta ghost" to="/#contact">{t("about.end.cta")}</Link>
-      </div>
-    </section>
+        <Link className="button-link" to="/contact">{t("about.end.cta")}</Link>
+      </section>
+    </main>
   )
 }

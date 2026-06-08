@@ -1,4 +1,5 @@
-import React, { useMemo, useRef, useState, useEffect } from 'react'
+import { useMemo, useRef, useState, useEffect } from 'react'
+import { Link } from "react-router-dom"
 import './Heritage.css'
 import { useTranslation } from 'react-i18next'
 
@@ -49,11 +50,12 @@ export default function Heritage({ items }) {
     <section className="heritage">
       {/* Left copy block */}
       <div className="h-left">
-        <h2><span>10+ </span>{t("heritage.title")}</h2>
+        <span className="eyebrow">{t("hashtag.kicker")}</span>
+        <h2>{t("heritage.title")}</h2>
         <p>{t("heritage.sub")}</p>
-        <button className="h-btn" onClick={() => (window.location.hash = '#cities')}>
+        <Link className="h-btn" to="/cities">
           {t("heritage.cta")}
-        </button>
+        </Link>
       </div>
 
       {/* Right gallery */}

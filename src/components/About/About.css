@@ -1,67 +1,13 @@
-.about { background:#fff; color:#0b0d12; }
-.section { max-width:1200px; margin:0 auto; padding:56px 20px; }
-
-.about-hero{
-  min-height:46vh; background-size:cover; background-position:center;
-  display:grid; place-items:center; border-bottom:1px solid #e5e7eb;
-}
-.about-hero__inner{ text-align:center; padding:60px 20px; backdrop-filter: blur(2px); }
-.about-hero h1{ margin:0 0 8px; font-size:clamp(36px,6vw,60px); font-weight:900; }
-.about-hero p{ margin:0 auto 16px; color:#334155; max-width:70ch; }
-.about-cta{
-  display:inline-block; text-decoration:none; font-weight:800;
-  background:#0ea5e9; color:#fff; padding:12px 18px; border-radius:12px;
-  cursor:pointer;
-}
-.about-cta.ghost{
-  background:#fff; color:#0b0d12; border:1px solid #e5e7eb;
-}
-.about-cta:hover{ filter:brightness(1.05) }
-
-/* Mission stats */
-.lead{ font-size:18px; color:#1f2937; max-width:72ch; }
-.card{
-  background:#ffffff; border:1px solid rgba(0,0,0,.06);
-  border-radius:18px; box-shadow:0 8px 26px rgba(0,0,0,.06); padding:18px;
-}
-.about-stats{
-  display:grid; gap:16px; grid-template-columns:repeat(4,1fr);
-  margin-top:16px;
-}
-.stat .val{ font-size:28px; font-weight:900; }
-.stat .lbl{ color:#6b7280; }
-
-/* Values */
-.about-values{ display:grid; gap:16px; grid-template-columns:repeat(4,1fr); }
-.value h3{ margin:0 0 6px; }
-.value p{ margin:0; color:#475569; }
-
-/* Team */
-.about-team{ display:grid; gap:18px; grid-template-columns:repeat(4,1fr); }
-.member{ padding:12px; }
-.avatar{ margin:0 0 10px; height:220px; border-radius:14px; overflow:hidden; }
-.avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
-.member .meta h3{ margin:0 0 4px; font-size:18px; }
-.member .meta p{ margin:0; color:#6b7280; }
-
-/* Timeline */
-.about-timeline{ position:relative; }
-.t-item{ display:grid; grid-template-columns:100px 1fr; gap:12px; align-items:start; margin:10px 0; }
-.t-year{
-  font-weight:900; color:#c1993a; font-size:20px; line-height:42px;
-}
-.t-card h3{ margin:0 0 6px; }
-.t-card p{ margin:0; color:#475569; }
-
-/* End */
-.about-end{ text-align:center; }
-.about-end p{ color:#475569; }
-
-/* Responsive */
-@media (max-width: 1024px){
-  .about-stats, .about-values, .about-team{ grid-template-columns: repeat(2,1fr); }
-}
-@media (max-width: 560px){
-  .about-stats, .about-values, .about-team{ grid-template-columns: 1fr; }
-  .t-item{ grid-template-columns: 80px 1fr; }
-}
+.about { background: #fffdfa; }
+.about-mission { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 60px; align-items: start; }
+.about-values { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.value-number { display: block; color: var(--sand); font-weight: 900; margin-bottom: 30px; }
+.value p { margin-bottom: 0; }
+.about-timeline { display: grid; gap: 16px; max-width: 920px; }
+.t-item { display: grid; grid-template-columns: 90px 1fr; gap: 18px; align-items: stretch; }
+.t-year { display: grid; place-items: center; min-height: 100%; border-radius: 18px; background: var(--teal); color: #fff; font-size: 1.2rem; font-weight: 900; }
+.t-card p { margin: 0; }
+.about-end { text-align: center; max-width: 800px; }
+.about-end p { max-width: 56ch; margin-inline: auto; }
+@media (max-width: 900px) { .about-values { grid-template-columns: 1fr 1fr; } .about-mission { grid-template-columns: 1fr; gap: 20px; } }
+@media (max-width: 560px) { .about-values { grid-template-columns: 1fr; } .t-item { grid-template-columns: 60px 1fr; } }

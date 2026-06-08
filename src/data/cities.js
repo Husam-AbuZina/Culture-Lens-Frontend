@@ -1,126 +1,92 @@
-// All images must exist in /public/images (case-sensitive)
 export const cities = {
-    hebron: {
-      slug: "hebron",
-      name: "Hebron",
-      hero: "/images/HebronMeusuem.jpg",
-      summary:
-        "Hebron is one of the oldest continuously inhabited cities. Explore its heritage, markets, and historic architecture.",
-      gallery: [
-        "/images/HebronMeusuem.jpg",
-        "/images/IbrahimiMosque.jpg",
-        "/images/OldTown.jpg",
-      ],
-      places: [
-        {
-          title: "Ibrahimi Mosque",
-          img: "/images/IbrahimiMosque.jpg",
-          desc:
-            "A sacred site with deep religious and historical significance, featuring Mamluk and Ottoman-era details."
-        },
-        {
-          title: "Old City Market",
-          img: "/images/OldTown.jpg",
-          desc:
-            "Traditional souq with artisans, glassblowers, and spices across narrow stone alleys."
-        },
-        {
-          title: "Hebron Museum",
-          img: "/images/HebronMeusuem.jpg",
-          desc:
-            "Archival artifacts and exhibitions that narrate Hebron’s cultural evolution."
-        }
-      ]
-    },
-    bethlehem: {
-      slug: "bethlehem",
-      name: "Bethlehem",
-      hero: "/images/BethlehemChurch.jpg",
-      summary:
-        "Bethlehem blends ancient heritage with vibrant local life. Iconic churches, old quarters, and crafts.",
-      gallery: [
-        "/images/BethlehemChurch.jpg",
-        "/images/Churches.jpg",
-        "/images/Churches2.jpg",
-      ],
-      places: [
-        {
-          title: "Nativity Church",
-          img: "/images/BethlehemChurch.jpg",
-          desc:
-            "A UNESCO World Heritage site and one of the oldest surviving Christian churches."
-        },
-        {
-          title: "Manger Square",
-          img: "/images/Churches.jpg",
-          desc:
-            "Historic plaza surrounded by landmarks, cafés, and cultural events."
-        },
-        {
-          title: "Milk Grotto",
-          img: "/images/Churches2.jpg",
-          desc:
-            "A serene chapel with centuries of local lore and pilgrimage tradition."
-        }
-      ]
-    },
-    jerusalem: {
-      slug: "jerusalem",
-      name: "Jerusalem",
-      hero: "/images/AlAqusa.jpg",
-      summary:
-        "A mosaic of cultures and faiths. Wander its quarters, walls, gates, and ancient streets.",
-      gallery: [
-        "/images/AlAqusa.jpg",
-        "/images/OldTown.jpg",
-        "/images/Acre.jpg"
-      ],
-      places: [
-        {
-          title: "Al-Aqsa Compound",
-          img: "/images/AlAqusa.jpg",
-          desc:
-            "A sacred plateau with centuries of craftsmanship, domes, and courtyards."
-        },
-        {
-          title: "Old City Alleys",
-          img: "/images/OldTown.jpg",
-          desc:
-            "Stone-paved passages linking souqs, homes, and shrines within the walls."
-        },
-        {
-          title: "City Walls & Gates",
-          img: "/images/Acre.jpg",
-          desc:
-            "Fortifications and portals that frame the old city’s living history."
-        }
-      ]
-    }
-  }
-  
-  export const getCity = (slug) => cities[slug?.toLowerCase()]
-  
+  hebron: {
+    slug: "hebron",
+    hero: "/images/HebronMeusuem.jpg",
+    gallery: [
+      "/images/HebronMeusuem.jpg",
+      "/images/IbrahimiMosque.jpg",
+      "/images/OldTown.jpg",
+    ],
+    places: [
+      {
+        slug: "ibrahimi-mosque",
+        image: "/images/IbrahimiMosque.jpg",
+        gallery: ["/images/IbrahimiMosque.jpg", "/images/OldTown.jpg"],
+      },
+      {
+        slug: "old-city-market",
+        image: "/images/OldTown.jpg",
+        gallery: ["/images/OldTown.jpg", "/images/Oil Maker.jpg"],
+      },
+      {
+        slug: "hebron-museum",
+        image: "/images/HebronMeusuem.jpg",
+        gallery: ["/images/HebronMeusuem.jpg", "/images/OldTown.jpg"],
+      },
+    ],
+  },
+  bethlehem: {
+    slug: "bethlehem",
+    hero: "/images/BethlehemChurch.jpg",
+    gallery: [
+      "/images/BethlehemChurch.jpg",
+      "/images/Churches.jpg",
+      "/images/NightChurchBethlehem.jpg",
+    ],
+    places: [
+      {
+        slug: "church-of-the-nativity",
+        image: "/images/BethlehemChurch.jpg",
+        gallery: ["/images/BethlehemChurch.jpg", "/images/NightChurchBethlehem.jpg"],
+      },
+      {
+        slug: "manger-square",
+        image: "/images/Churches.jpg",
+        gallery: ["/images/Churches.jpg", "/images/BethlehemChurch.jpg"],
+      },
+      {
+        slug: "milk-grotto",
+        image: "/images/Churches2.jpg",
+        gallery: ["/images/Churches2.jpg", "/images/NightChurchBethlehem.jpg"],
+      },
+    ],
+  },
+  jerusalem: {
+    slug: "jerusalem",
+    hero: "/images/AlAqusa.jpg",
+    gallery: [
+      "/images/AlAqusa.jpg",
+      "/images/AlAqusa2.JPG",
+      "/images/OldTing.jpg",
+    ],
+    places: [
+      {
+        slug: "al-aqsa-compound",
+        image: "/images/AlAqusa.jpg",
+        gallery: ["/images/AlAqusa.jpg", "/images/AlAqusa2.JPG"],
+      },
+      {
+        slug: "old-city-alleys",
+        image: "/images/OldTing.jpg",
+        gallery: ["/images/OldTing.jpg", "/images/OldTown.jpg"],
+      },
+      {
+        slug: "old-city-walls",
+        image: "/images/Acre.jpg",
+        gallery: ["/images/Acre.jpg", "/images/OldTing.jpg"],
+      },
+    ],
+  },
+}
 
-  export function getAllCities() {
-    return [
-      {
-        slug: "hebron",
-        name: "Hebron",
-        summary: "Home to the Ibrahimi Mosque and ancient souks.",
-        hero: "/images/HebronMeusuem.jpg",
-      },
-      {
-        slug: "bethlehem",
-        name: "Bethlehem",
-        summary: "Famous for the Church of the Nativity and vibrant streets.",
-        hero: "/images/BethlehemChurch.jpg",
-      },
-      {
-        slug: "jerusalem",
-        name: "Jerusalem",
-        summary: "The Old City, Al-Aqsa Mosque, and historic markets.",
-        hero: "/images/AlAqusa.jpg",
-      },
-    ]
+export const getCity = (slug) => cities[slug?.toLowerCase()]
+
+export const getAllCities = () => Object.values(cities)
+
+export function getPlace(slug) {
+  for (const city of getAllCities()) {
+    const place = city.places.find((item) => item.slug === slug)
+    if (place) return { ...place, city }
   }
-  
+  return undefined
+}

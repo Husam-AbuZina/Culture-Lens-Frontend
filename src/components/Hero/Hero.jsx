@@ -1,36 +1,27 @@
-import React from "react";
-import "./Hero.css";
-import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom"
+import { useTranslation } from "react-i18next"
+import PageMeta from "../PageMeta/PageMeta"
+import "./Hero.css"
 
 export default function Hero() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation()
 
   return (
-    <section className="hero-wrap" lang={i18n.language}>
-      {/* Background image */}
-      <div
-        className="hero-bg"
-        role="img"
-        aria-label={t("hero.bgAria")}
-      />
-
-      {/* Right card */}
-      <div className="hero-card">
-        <span className="hero-kicker">{t("hero.kicker")}</span>
-
-        <h1 className="hero-title">
-          {t("hero.titleLine1")}<br />{t("hero.titleLine2")}
-        </h1>
-
-        <p className="hero-sub">{t("hero.sub")}</p>
-
-        <button
-          className="hero-cta"
-          onClick={() => (window.location.hash = "#cities")}
-        >
-          {t("hero.cta")}
-        </button>
+    <section className="hero-wrap">
+      <PageMeta description={t("hero.sub")} />
+      <div className="hero-bg" role="img" aria-label={t("hero.bgAria")} />
+      <div className="hero-overlay" />
+      <div className="hero-content">
+        <div className="hero-card">
+          <span className="eyebrow">{t("hero.kicker")}</span>
+          <h1>{t("hero.title")}</h1>
+          <p>{t("hero.sub")}</p>
+          <div className="hero-actions">
+            <a className="button-link" href="#cities">{t("hero.cta")}</a>
+            <Link className="text-link" to="/about">{t("hero.learnMore")} →</Link>
+          </div>
+        </div>
       </div>
     </section>
-  );
+  )
 }

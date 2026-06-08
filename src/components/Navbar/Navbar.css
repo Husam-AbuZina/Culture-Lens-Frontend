@@ -1,85 +1,57 @@
-/* Base (white header like screenshot) */
-.cl-nav{
+.cl-nav {
   position: sticky;
   top: 0;
-  background: #ffffff;
-  color: #0b0d12;
-  border-bottom: 1px solid rgba(0,0,0,.06);
-  z-index: 50;
+  z-index: 100;
+  background: rgba(255, 253, 250, 0.94);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--line);
 }
-
-.cl-wrap{
+.cl-wrap {
+  width: min(1180px, calc(100% - 40px));
+  min-height: 82px;
+  margin-inline: auto;
   display: grid;
-  grid-template-columns: 1fr auto 1fr; /* left / center / right */
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  gap: 16px;
-  padding-top: 14px;
-  padding-bottom: 14px;
+  gap: 22px;
 }
+.cl-brand { display: inline-flex; align-items: center; gap: 10px; width: fit-content; text-decoration: none; font-weight: 900; }
+.cl-logo { width: 48px; height: 48px; object-fit: contain; }
+.cl-name { font-size: 1.12rem; white-space: nowrap; }
+.cl-center { display: flex; align-items: center; justify-content: center; gap: 34px; }
+.cl-link { position: relative; padding: 30px 2px; text-decoration: none; font-weight: 750; color: #555b5e; }
+.cl-link::after { content: ""; position: absolute; inset-inline: 0; bottom: 20px; height: 2px; background: var(--teal); transform: scaleX(0); transition: transform 180ms ease; }
+.cl-link:hover, .cl-link.is-active { color: var(--ink); }
+.cl-link.is-active::after { transform: scaleX(1); }
+.cl-actions { display: flex; justify-content: flex-end; align-items: center; gap: 10px; }
+.language-btn { border: 1px solid var(--line); background: #fff; color: var(--ink); border-radius: 999px; padding: 9px 14px; font-weight: 800; cursor: pointer; }
+.cl-burger { display: none; width: 44px; height: 44px; padding: 10px; border: 0; background: transparent; cursor: pointer; }
+.cl-burger span { display: block; width: 24px; height: 2px; margin: 5px auto; background: var(--ink); transition: transform 180ms ease, opacity 180ms ease; }
+.cl-burger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.cl-burger.is-open span:nth-child(2) { opacity: 0; }
+.cl-burger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* LEFT: brand */
-.cl-brand{
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  color: inherit;
-  font-weight: 800;
-}
-.cl-logo{
-  display:inline-flex; 
-  color:#0b0d12;
-}
-.cl-name{
-  font-size: 22px;
-  letter-spacing: .2px;
-}
-
-/* CENTER: links */
-.cl-center{
-  display: flex;
-  justify-content: center;
-  gap: 48px;                 /* spaced like screenshot */
-}
-.cl-link{
-  color: #0b0d12;
-  text-decoration: none;
-  font-weight: 700;
-}
-.cl-link:hover{
-  opacity: .7;
-}
-
-/* RIGHT: icons */
-.cl-right{
-  display: flex;
-  justify-content: flex-end;
-  gap: 18px;
-}
-.icon-btn{
-  appearance: none;
-  background: transparent;
-  border: 0;
-  padding: 6px;
-  cursor: pointer;
-  color: #0b0d12;
-}
-.icon-btn:hover{ opacity: .7 }
-
-/* MOBILE */
-.cl-burger{
-  display: none;
-  width: 36px; height: 36px;
-  border: 0; background: transparent; cursor: pointer;
-}
-.cl-burger span{
-  display:block; height:2px; background:#0b0d12; margin:6px 0; border-radius:2px;
-}
-
-@media (max-width: 960px){
-  .cl-center{ display:none; }
-  .cl-burger{ display:block; }
-  .cl-wrap{
-    grid-template-columns: auto 1fr auto; /* brand | gap | icons/burger */
+@media (max-width: 840px) {
+  .cl-wrap { width: min(100% - 28px, 1180px); min-height: 72px; grid-template-columns: 1fr auto; }
+  .cl-logo { width: 42px; height: 42px; }
+  .cl-center {
+    display: none;
+    position: absolute;
+    top: 72px;
+    inset-inline: 0;
+    background: #fffdfa;
+    border-bottom: 1px solid var(--line);
+    padding: 18px 20px 26px;
+    box-shadow: var(--shadow);
   }
+  .cl-center.is-open { display: grid; }
+  .cl-link { padding: 12px; text-align: center; border-radius: 10px; }
+  .cl-link::after { display: none; }
+  .cl-link.is-active { background: var(--sand-light); }
+  .cl-burger { display: block; }
+}
+
+@media (max-width: 420px) {
+  .cl-name { font-size: 1rem; }
+  .language-btn { padding: 8px 10px; font-size: 0.82rem; }
 }

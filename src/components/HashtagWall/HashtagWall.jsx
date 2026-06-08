@@ -1,4 +1,3 @@
-import React from 'react'
 import './HashtagWall.css'
 import { useTranslation } from 'react-i18next'
 

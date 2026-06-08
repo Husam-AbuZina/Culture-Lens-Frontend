@@ -11,10 +11,18 @@ i18n
   .init({
     resources: { en:{common:en}, ar:{common:ar} },
     fallbackLng: "en",
+    supportedLngs: ["en", "ar"],
+    nonExplicitSupportedLngs: true,
     ns: ["common"],
     defaultNS: "common",
     interpolation: { escapeValue: false },
-    detection: { order: ["querystring","localStorage","navigator"] },
+    detection: {
+      order: ["querystring", "localStorage", "navigator"],
+      caches: ["localStorage"],
+    },
   });
+
+document.documentElement.lang = i18n.resolvedLanguage || "en";
+document.documentElement.dir = i18n.dir();
 
 export default i18n;

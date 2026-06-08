@@ -1,35 +1,38 @@
-import React from "react"
 import { Link } from "react-router-dom"
+import { useTranslation } from "react-i18next"
 import { getAllCities } from "../../data/cities"
+import PageMeta from "../../components/PageMeta/PageMeta"
 import "./CitiesPage.css"
 
 export default function CitiesPage() {
-  const cities = getAllCities()
+  const { t } = useTranslation()
 
   return (
-    <section className="cities-page">
-      {/* Hero */}
-      <header className="cp-hero" style={{ backgroundImage: "url(/images/cities-hero.jpg)" }}>
+    <main className="cities-page">
+      <PageMeta title={t("citiesPage.title")} description={t("citiesPage.subtitle")} />
+      <header className="cp-hero" style={{ backgroundImage: "url(/images/OldTown.jpg)" }}>
+        <div className="hero-overlay" />
         <div className="cp-hero-inner">
-          <h1>Explore Palestinian Cities</h1>
-          <p>Each city holds a unique heritage, rich culture, and unforgettable history.</p>
+          <span className="eyebrow">{t("citiesPage.eyebrow")}</span>
+          <h1>{t("citiesPage.title")}</h1>
+          <p>{t("citiesPage.subtitle")}</p>
         </div>
       </header>
 
-      {/* Grid of cities */}
-      <div className="section cp-grid">
-        {cities.map((city) => (
+      <section className="section cp-grid">
+        {getAllCities().map((city) => (
           <Link key={city.slug} to={`/city/${city.slug}`} className="cp-card">
             <figure className="cp-img-wrap">
-              <img src={city.hero} alt={city.name} loading="lazy" />
+              <img src={city.hero} alt={t(`cities.${city.slug}.name`)} loading="lazy" />
             </figure>
             <div className="cp-info">
-              <h3>{city.name}</h3>
-              <p>{city.summary}</p>
+              <h2>{t(`cities.${city.slug}.name`)}</h2>
+              <p>{t(`cities.${city.slug}.summary`)}</p>
+              <span>{t("citiesPage.explore")} →</span>
             </div>
           </Link>
         ))}
-      </div>
-    </section>
+      </section>
+    </main>
   )
 }

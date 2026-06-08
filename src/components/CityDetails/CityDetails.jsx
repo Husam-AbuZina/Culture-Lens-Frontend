@@ -1,90 +1,78 @@
-import React, { useEffect } from "react"
-import { useParams, Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { useTranslation } from "react-i18next"
 import { getCity } from "../../data/cities"
+import PageMeta from "../PageMeta/PageMeta"
 import "./CityDetails.css"
 
-export default function CityDetails(){
+export default function CityDetails() {
   const { slug } = useParams()
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const city = getCity(slug)
-
-  useEffect(() => {
-    if (city) {
-      const cityName = t(`cities.${city.slug}.name`)
-      document.title = `${cityName} • ${t("siteName")}`
-    }
-  }, [city, i18n.language, t])
 
   if (!city) {
     return (
-      <section className="city-details section">
-        <h2>{t("cityDetails.notFound.title")}</h2>
+      <main className="empty-page section">
+        <PageMeta title={t("cityDetails.notFound.title")} description={t("cityDetails.notFound.hint")} />
+        <h1>{t("cityDetails.notFound.title")}</h1>
         <p>{t("cityDetails.notFound.hint")}</p>
-        <Link className="back-btn" to="/#cities">← {t("cityDetails.backToCities")}</Link>
-      </section>
+        <Link className="button-link" to="/cities">{t("cityDetails.backToCities")}</Link>
+      </main>
     )
   }
 
-  const cityName   = t(`citiesDetails.${city.slug}.name`)
-  const citySummary= t(`citiesDetails.${city.slug}.summary`)
+  const cityName = t(`cities.${city.slug}.name`)
+  const citySummary = t(`cities.${city.slug}.summary`)
 
   return (
-    <section className="city-details">
-      {/* Hero */}
+    <main className="city-details">
+      <PageMeta title={cityName} description={citySummary} />
       <header className="cd-hero" style={{ backgroundImage: `url(${city.hero})` }}>
+        <div className="hero-overlay" />
         <div className="cd-hero-inner">
+          <span className="eyebrow">{t("cityDetails.eyebrow")}</span>
           <h1>{cityName}</h1>
           <p>{citySummary}</p>
-          <Link className="cd-cta" to="/#cities">{t("cityDetails.browseOther")}</Link>
+          <Link className="button-link" to="/cities">{t("cityDetails.browseOther")}</Link>
         </div>
       </header>
 
-      {/* Gallery */}
-      <div className="section cd-gallery">
-        {city.gallery.map((src, i) => (
-          <figure className="cd-shot" key={i}>
-            <img src={src} alt={`${cityName} ${i+1}`} loading="lazy" />
+      <section className="section cd-gallery" aria-label={t("city.photos")}>
+        {city.gallery.map((src, index) => (
+          <figure className="cd-shot" key={src}>
+            <img src={src} alt={`${cityName} ${index + 1}`} loading="lazy" />
           </figure>
         ))}
-      </div>
+      </section>
 
-      {/* Heritage Places */}
-      <div className="section">
+      <section className="section">
         <h2 className="cd-h2">{t("city.heritagePlaces")}</h2>
         <div className="cd-grid">
-          {city.places.map((p, i) => (
-            <Link
-              key={p.slug || i}
-              to={`/place/${p.slug}`}
-              className="cd-card"
-              aria-label={`${t("cities.open")} ${p.title}`}
-            >
-              <figure className="cd-media">
-                <img src={p.img} alt={p.title} loading="lazy" />
-              </figure>
-              <div className="cd-info">
-                <h3>{p.title}</h3>
-                <p>{p.desc}</p>
-                <span className="cd-more">{t("place.viewDetails", "View details")} →</span>
-              </div>
-            </Link>
-          ))}
+          {city.places.map((place) => {
+            const title = t(`places.${place.slug}.name`)
+            return (
+              <Link
+                key={place.slug}
+                to={`/place/${place.slug}`}
+                className="cd-card"
+                aria-label={t("cities.open", { name: title })}
+              >
+                <figure className="cd-media">
+                  <img src={place.image} alt={title} loading="lazy" />
+                </figure>
+                <div className="cd-info">
+                  <h3>{title}</h3>
+                  <p>{t(`places.${place.slug}.description`)}</p>
+                  <span className="cd-more">{t("place.viewDetails")} →</span>
+                </div>
+              </Link>
+            )
+          })}
         </div>
-      </div>
+      </section>
 
-      {/* Back */}
       <div className="section cd-back">
-        <Link
-          className="back-btn"
-          to="/"
-          onClick={() => setTimeout(() => {
-            document.getElementById('cities')?.scrollIntoView({ behavior:'smooth' })
-          }, 0)}
-        >
-          ← {t("cityDetails.backToCities")}
-        </Link>
+        <Link className="back-btn" to="/cities">{t("cityDetails.backToCities")}</Link>
       </div>
-    </section>
+    </main>
   )
 }

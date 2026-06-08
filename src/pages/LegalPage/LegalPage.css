@@ -1,0 +1,4 @@
+.legal-page { max-width: 820px; min-height: 65vh; }
+.legal-page h1 { font-size: clamp(2.4rem, 7vw, 4.5rem); margin-top: 12px; }
+.legal-page section { margin-top: 36px; }
+.legal-page section p { line-height: 1.8; }

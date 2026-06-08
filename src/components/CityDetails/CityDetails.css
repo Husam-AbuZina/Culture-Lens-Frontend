@@ -1,54 +1,47 @@
-.city-details { background:#fff; color:#0b0d12; }
-
-.cd-hero{
-  min-height: 44vh;
+.city-details { background: #fffdfa; }
+.cd-hero, .cp-hero, .about-hero, .contact-hero {
+  position: relative;
+  min-height: 480px;
+  display: grid;
+  place-items: center;
   background-size: cover;
   background-position: center;
-  display: grid; place-items: center;
+  text-align: center;
+  overflow: hidden;
 }
-.cd-hero-inner{
-  max-width: 1000px; margin: 0 auto; padding: 60px 20px; text-align: center;
-  backdrop-filter: blur(2px);
+.cd-hero .hero-overlay, .cp-hero .hero-overlay, .about-hero .hero-overlay, .contact-hero .hero-overlay {
+  background: rgba(23, 29, 31, 0.57);
 }
-.cd-hero h1{
-  margin:0 0 8px; font-size: clamp(36px,6vw,60px); font-weight: 900;
+.cd-hero-inner, .cp-hero-inner, .about-hero__inner, .contact-hero__inner {
+  position: relative;
+  z-index: 1;
+  width: min(820px, calc(100% - 32px));
+  padding: 60px 20px;
 }
-.cd-hero p{
-  margin:0 auto 16px; color:#334155; max-width: 70ch;
-}
-.cd-cta{
-  display:inline-block; text-decoration:none; font-weight:800;
-  background:#0ea5e9; color:#fff; padding:12px 18px; border-radius:12px;
-}
+.cd-hero h1, .cp-hero h1, .about-hero h1, .contact-hero h1 { color: #fff; }
+.cd-hero p, .cp-hero p, .about-hero p, .contact-hero p { max-width: 68ch; margin-inline: auto; color: rgba(255, 255, 255, 0.9); }
+.cd-hero .eyebrow, .cp-hero .eyebrow, .about-hero .eyebrow, .contact-hero .eyebrow { color: #bce8e8; }
+.cd-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.cd-shot { margin: 0; min-height: 280px; border-radius: 20px; overflow: hidden; }
+.cd-shot img { width: 100%; height: 100%; min-height: 280px; object-fit: cover; display: block; }
+.cd-h2 { margin-bottom: 28px; }
+.cd-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.cd-card { overflow: hidden; border: 1px solid var(--line); border-radius: 22px; background: #fff; text-decoration: none; box-shadow: 0 10px 32px rgba(51, 52, 55, 0.07); transition: transform 180ms ease; }
+.cd-card:hover { transform: translateY(-5px); }
+.cd-media { height: 230px; margin: 0; overflow: hidden; }
+.cd-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cd-info { padding: 20px; }
+.cd-info p { min-height: 82px; }
+.cd-more { color: var(--teal-dark); font-weight: 800; }
+.cd-back { padding-top: 0; text-align: center; }
+.back-btn { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 11px 18px; background: #fff; text-decoration: none; font-weight: 800; }
+.content-section { padding-bottom: 0; }
 
-.section{ max-width: 1200px; margin: 0 auto; padding: 56px 20px; }
-
-/* Gallery */
-.cd-gallery{ display:grid; gap:18px; grid-template-columns: repeat(3,1fr); }
-.cd-shot{ margin:0; border-radius:14px; overflow:hidden; border:1px solid rgba(0,0,0,.06); }
-.cd-shot img{ width:100%; height:260px; object-fit:cover; display:block; }
-@media (max-width: 900px){ .cd-gallery{ grid-template-columns: 1fr 1fr } }
-@media (max-width: 560px){ .cd-gallery{ grid-template-columns: 1fr } .cd-shot img{ height: 200px } }
-
-/* Places grid */
-.cd-h2{ margin:0 0 12px; font-size: clamp(24px,4vw,34px); }
-.cd-grid{ display:grid; gap:20px; grid-template-columns: repeat(3,1fr); }
-@media (max-width: 1024px){ .cd-grid{ grid-template-columns: 1fr 1fr } }
-@media (max-width: 560px){ .cd-grid{ grid-template-columns: 1fr } }
-
-.cd-card{
-  border-radius:16px; overflow:hidden; border:1px solid rgba(0,0,0,.06);
-  box-shadow: 0 8px 26px rgba(0,0,0,.08); background:#fff;
+@media (max-width: 900px) {
+  .cd-gallery, .cd-grid { grid-template-columns: 1fr 1fr; }
 }
-.cd-media{ margin:0; height: 220px; overflow:hidden; }
-.cd-media img{ width:100%; height:100%; object-fit:cover; display:block; }
-.cd-info{ padding:14px 16px; }
-.cd-info h3{ margin:0 0 6px; font-size:18px; }
-.cd-info p{ margin:0; color:#475569; }
-
-.cd-back{ text-align:center; }
-.back-btn{
-  display:inline-block; text-decoration:none; font-weight:800; color:#0b0d12;
-  border:1px solid #e5e7eb; padding:10px 14px; border-radius:10px;
+@media (max-width: 600px) {
+  .cd-hero, .cp-hero, .about-hero, .contact-hero { min-height: 400px; }
+  .cd-gallery, .cd-grid { grid-template-columns: 1fr; }
+  .cd-info p { min-height: auto; }
 }
-.back-btn:hover{ background:#f8fafc; }
