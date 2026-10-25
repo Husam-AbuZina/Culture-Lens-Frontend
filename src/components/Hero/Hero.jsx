@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom"
 import { useTranslation } from "react-i18next"
 import PageMeta from "../PageMeta/PageMeta"
-import { getAllCities } from "../../data/cities"
+import { getAllCities, localized } from "../../data/cities"
 import "./Hero.css"
 
 export default function Hero() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const cities = getAllCities()
 
   return (
@@ -47,7 +47,7 @@ export default function Hero() {
         {cities.map((city, index) => (
           <Link to={`/city/${city.slug}`} className="atlas-city" key={city.slug}>
             <span className="atlas-number">0{index + 1}</span>
-            <span>{t(`cities.${city.slug}.name`)}</span>
+            <span>{localized(city.name, i18n.language)}</span>
             <span className="atlas-arrow">↗</span>
           </Link>
         ))}

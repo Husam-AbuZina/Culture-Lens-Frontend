@@ -1,18 +1,23 @@
 import { useMemo, useState } from "react"
 import { Link } from "react-router-dom"
 import { useTranslation } from "react-i18next"
+import { getAllPlaces, localized } from "../../data/cities"
 import "./Heritage.css"
 
 export default function Heritage({ items }) {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const [index, setIndex] = useState(0)
 
-  const data = useMemo(() => items?.length ? items : [
-    { title: t("heritage.items.innerPeace"), place: t("heritage.items.heishamPalace"), img: "/images/HeishamPalace.jpg" },
-    { title: t("heritage.items.churchOfMahd"), place: t("heritage.items.bethlehem"), img: "/images/BethlehemChurch.jpg" },
-    { title: t("heritage.items.citadelWalls"), place: t("heritage.items.jerusalem"), img: "/images/Churches2.jpg" },
-    { title: t("heritage.items.mountainOfLocals"), place: t("heritage.items.nablus"), img: "/images/Nablus.jpg" },
-  ], [items, t])
+  const data = useMemo(
+    () => items?.length
+      ? items
+      : getAllPlaces().slice(0, 4).map((place) => ({
+        title: localized(place.category, i18n.language),
+        place: localized(place.name, i18n.language),
+        img: place.image,
+      })),
+    [items, i18n.language],
+  )
 
   const active = data[index]
   const next = () => setIndex((value) => (value + 1) % data.length)

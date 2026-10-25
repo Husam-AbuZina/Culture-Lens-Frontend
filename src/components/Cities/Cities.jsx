@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom"
 import { useTranslation } from "react-i18next"
-import { getAllCities } from "../../data/cities"
+import { getAllCities, localized } from "../../data/cities"
 import "./Cities.css"
 
 export default function Cities() {
-  const { t } = useTranslation()
-  const cities = getAllCities()
+  const { t, i18n } = useTranslation()
+  const cities = getAllCities().slice(0, 3)
 
   return (
     <section id="cities" className="cities-section">
@@ -24,7 +24,7 @@ export default function Cities() {
         {cities.map((city, index) => (
           <Link to={`/city/${city.slug}`} className={`city-feature city-feature-${index + 1}`} key={city.slug}>
             <figure>
-              <img src={city.hero} alt={t(`cities.${city.slug}.name`)} loading="lazy" />
+              <img src={city.hero} alt={localized(city.name, i18n.language)} loading="lazy" />
               <span className="city-coordinate">
                 {index === 0 ? "31.5326° N" : index === 1 ? "31.7054° N" : "31.7683° N"}
               </span>
@@ -32,8 +32,8 @@ export default function Cities() {
             <div className="city-feature-copy">
               <span className="city-index">0{index + 1}</span>
               <div>
-                <h3>{t(`cities.${city.slug}.name`)}</h3>
-                <p>{t(`cities.${city.slug}.summary`)}</p>
+                <h3>{localized(city.name, i18n.language)}</h3>
+                <p>{localized(city.summary, i18n.language)}</p>
               </div>
               <span className="city-open">↗</span>
             </div>

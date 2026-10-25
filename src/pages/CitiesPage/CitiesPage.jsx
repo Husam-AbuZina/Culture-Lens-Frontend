@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom"
 import { useTranslation } from "react-i18next"
-import { getAllCities } from "../../data/cities"
+import { getAllCities, localized } from "../../data/cities"
 import PageMeta from "../../components/PageMeta/PageMeta"
 import "./CitiesPage.css"
 
 export default function CitiesPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
 
   return (
     <main className="cities-page">
@@ -23,11 +23,11 @@ export default function CitiesPage() {
         {getAllCities().map((city) => (
           <Link key={city.slug} to={`/city/${city.slug}`} className="cp-card">
             <figure className="cp-img-wrap">
-              <img src={city.hero} alt={t(`cities.${city.slug}.name`)} loading="lazy" />
+              <img src={city.hero} alt={localized(city.name, i18n.language)} loading="lazy" />
             </figure>
             <div className="cp-info">
-              <h2>{t(`cities.${city.slug}.name`)}</h2>
-              <p>{t(`cities.${city.slug}.summary`)}</p>
+              <h2>{localized(city.name, i18n.language)}</h2>
+              <p>{localized(city.summary, i18n.language)}</p>
               <span>{t("citiesPage.explore")} →</span>
             </div>
           </Link>

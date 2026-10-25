@@ -1,12 +1,12 @@
 import { Link, useParams } from "react-router-dom"
 import { useTranslation } from "react-i18next"
-import { getCity } from "../../data/cities"
+import { getCity, localized } from "../../data/cities"
 import PageMeta from "../PageMeta/PageMeta"
 import "./CityDetails.css"
 
 export default function CityDetails() {
   const { slug } = useParams()
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const city = getCity(slug)
 
   if (!city) {
@@ -20,8 +20,8 @@ export default function CityDetails() {
     )
   }
 
-  const cityName = t(`cities.${city.slug}.name`)
-  const citySummary = t(`cities.${city.slug}.summary`)
+  const cityName = localized(city.name, i18n.language)
+  const citySummary = localized(city.summary, i18n.language)
 
   return (
     <main className="city-details">
@@ -48,7 +48,7 @@ export default function CityDetails() {
         <h2 className="cd-h2">{t("city.heritagePlaces")}</h2>
         <div className="cd-grid">
           {city.places.map((place) => {
-            const title = t(`places.${place.slug}.name`)
+            const title = localized(place.name, i18n.language)
             return (
               <Link
                 key={place.slug}
@@ -61,7 +61,7 @@ export default function CityDetails() {
                 </figure>
                 <div className="cd-info">
                   <h3>{title}</h3>
-                  <p>{t(`places.${place.slug}.description`)}</p>
+                  <p>{localized(place.summary, i18n.language)}</p>
                   <span className="cd-more">{t("place.viewDetails")} →</span>
                 </div>
               </Link>

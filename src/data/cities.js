@@ -1,92 +1,54 @@
-export const cities = {
-  hebron: {
-    slug: "hebron",
-    hero: "/images/HebronMeusuem.jpg",
-    gallery: [
-      "/images/HebronMeusuem.jpg",
-      "/images/IbrahimiMosque.jpg",
-      "/images/OldTown.jpg",
-    ],
-    places: [
-      {
-        slug: "ibrahimi-mosque",
-        image: "/images/IbrahimiMosque.jpg",
-        gallery: ["/images/IbrahimiMosque.jpg", "/images/OldTown.jpg"],
-      },
-      {
-        slug: "old-city-market",
-        image: "/images/OldTown.jpg",
-        gallery: ["/images/OldTown.jpg", "/images/Oil Maker.jpg"],
-      },
-      {
-        slug: "hebron-museum",
-        image: "/images/HebronMeusuem.jpg",
-        gallery: ["/images/HebronMeusuem.jpg", "/images/OldTown.jpg"],
-      },
-    ],
-  },
-  bethlehem: {
-    slug: "bethlehem",
-    hero: "/images/BethlehemChurch.jpg",
-    gallery: [
-      "/images/BethlehemChurch.jpg",
-      "/images/Churches.jpg",
-      "/images/NightChurchBethlehem.jpg",
-    ],
-    places: [
-      {
-        slug: "church-of-the-nativity",
-        image: "/images/BethlehemChurch.jpg",
-        gallery: ["/images/BethlehemChurch.jpg", "/images/NightChurchBethlehem.jpg"],
-      },
-      {
-        slug: "manger-square",
-        image: "/images/Churches.jpg",
-        gallery: ["/images/Churches.jpg", "/images/BethlehemChurch.jpg"],
-      },
-      {
-        slug: "milk-grotto",
-        image: "/images/Churches2.jpg",
-        gallery: ["/images/Churches2.jpg", "/images/NightChurchBethlehem.jpg"],
-      },
-    ],
-  },
-  jerusalem: {
-    slug: "jerusalem",
-    hero: "/images/AlAqusa.jpg",
-    gallery: [
-      "/images/AlAqusa.jpg",
-      "/images/AlAqusa2.JPG",
-      "/images/OldTing.jpg",
-    ],
-    places: [
-      {
-        slug: "al-aqsa-compound",
-        image: "/images/AlAqusa.jpg",
-        gallery: ["/images/AlAqusa.jpg", "/images/AlAqusa2.JPG"],
-      },
-      {
-        slug: "old-city-alleys",
-        image: "/images/OldTing.jpg",
-        gallery: ["/images/OldTing.jpg", "/images/OldTown.jpg"],
-      },
-      {
-        slug: "old-city-walls",
-        image: "/images/Acre.jpg",
-        gallery: ["/images/Acre.jpg", "/images/OldTing.jpg"],
-      },
-    ],
-  },
+import content from "./culture_lens_content.json" with { type: "json" }
+
+const cloudName = "gkyn6vzf"
+
+export function cloudinaryImage(fileName, width = 1200) {
+  const publicFileName = fileName === "Oil Maker.webp" ? "Oil_Maker.webp" : fileName
+  return `https://res.cloudinary.com/${cloudName}/image/upload/f_auto,q_auto,w_${width}/${publicFileName}`
 }
 
-export const getCity = (slug) => cities[slug?.toLowerCase()]
+export function localized(value, language = "en") {
+  return value?.[language?.startsWith("ar") ? "ar" : "en"] ?? value?.en ?? ""
+}
 
-export const getAllCities = () => Object.values(cities)
+const places = content.places.map((place) => ({
+  ...place,
+  slug: place.id,
+  image: cloudinaryImage(place.image),
+  gallery: place.gallery.map((fileName) => cloudinaryImage(fileName)),
+}))
+
+const placesByCity = places.reduce((groups, place) => {
+  groups.set(place.cityId, [...(groups.get(place.cityId) ?? []), place])
+  return groups
+}, new Map())
+
+const cities = content.cities.map((city) => ({
+  ...city,
+  slug: city.id,
+  hero: cloudinaryImage(city.heroImage, 1600),
+  gallery: city.gallery.map((fileName) => cloudinaryImage(fileName)),
+  places: placesByCity.get(city.id) ?? [],
+}))
+
+const citiesBySlug = new Map(cities.map((city) => [city.slug, city]))
+const placesBySlug = new Map(places.map((place) => [place.slug, place]))
+
+export function getCity(slug) {
+  return citiesBySlug.get(slug?.toLowerCase())
+}
+
+export function getAllCities() {
+  return cities
+}
 
 export function getPlace(slug) {
-  for (const city of getAllCities()) {
-    const place = city.places.find((item) => item.slug === slug)
-    if (place) return { ...place, city }
-  }
-  return undefined
+  const place = placesBySlug.get(slug?.toLowerCase())
+  if (!place) return undefined
+
+  return { ...place, city: getCity(place.cityId) }
+}
+
+export function getAllPlaces() {
+  return places
 }

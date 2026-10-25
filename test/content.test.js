@@ -3,29 +3,43 @@ import assert from "node:assert/strict"
 import fs from "node:fs"
 import path from "node:path"
 import { fileURLToPath } from "node:url"
-import { getAllCities, getPlace } from "../src/data/cities.js"
+import { getAllCities, getAllPlaces, getPlace } from "../src/data/cities.js"
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..")
 const readJson = (file) => JSON.parse(fs.readFileSync(path.join(root, file), "utf8"))
 
-test("every city and place has valid linked data and local images", () => {
+test("every migrated city and place has valid bilingual content and Cloudinary images", () => {
   const slugs = new Set()
 
   for (const city of getAllCities()) {
     assert.ok(city.slug)
-    assert.ok(fs.existsSync(path.join(root, "public", city.hero)))
+    assert.ok(city.name.en)
+    assert.ok(city.name.ar)
+    assert.ok(city.summary.en)
+    assert.ok(city.summary.ar)
+    assert.match(city.hero, /^https:\/\/res\.cloudinary\.com\/gkyn6vzf\/image\/upload\/f_auto,q_auto,w_1600\//)
 
     for (const place of city.places) {
       assert.ok(place.slug)
       assert.ok(!slugs.has(place.slug), `duplicate place slug: ${place.slug}`)
       slugs.add(place.slug)
       assert.equal(getPlace(place.slug)?.city.slug, city.slug)
-      assert.ok(fs.existsSync(path.join(root, "public", place.image)))
+      assert.ok(place.name.en)
+      assert.ok(place.name.ar)
+      assert.ok(place.summary.en)
+      assert.ok(place.summary.ar)
+      assert.ok(place.story.en)
+      assert.ok(place.story.ar)
+      assert.match(place.image, /^https:\/\/res\.cloudinary\.com\/gkyn6vzf\/image\/upload\/f_auto,q_auto,w_1200\//)
       for (const image of place.gallery) {
-        assert.ok(fs.existsSync(path.join(root, "public", image)), `missing image: ${image}`)
+        assert.match(image, /^https:\/\/res\.cloudinary\.com\/gkyn6vzf\/image\/upload\/f_auto,q_auto,w_1200\//)
       }
     }
   }
+
+  assert.equal(getAllCities().length, 12)
+  assert.equal(getAllPlaces().length, 295)
+  assert.equal(slugs.size, 295)
 })
 
 test("English and Arabic provide matching translation structures", () => {
@@ -41,20 +55,6 @@ test("English and Arabic provide matching translation structures", () => {
     })
 
   assert.deepEqual(keys(ar).sort(), keys(en).sort())
-})
-
-test("all active city and place translations exist", () => {
-  for (const locale of ["en", "ar"]) {
-    const translations = readJson(`src/locales/${locale}/common.json`)
-    for (const city of getAllCities()) {
-      assert.ok(translations.cities[city.slug]?.name)
-      assert.ok(translations.cities[city.slug]?.summary)
-      for (const place of city.places) {
-        assert.ok(translations.places[place.slug]?.name)
-        assert.ok(translations.places[place.slug]?.longDescription)
-      }
-    }
-  }
 })
 
 test("legal policies have matching bilingual sections and metadata", () => {

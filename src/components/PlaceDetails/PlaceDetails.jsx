@@ -1,12 +1,12 @@
 import { Link, useParams } from "react-router-dom"
 import { useTranslation } from "react-i18next"
-import { getPlace } from "../../data/cities"
+import { getPlace, localized } from "../../data/cities"
 import PageMeta from "../PageMeta/PageMeta"
 import "../CityDetails/CityDetails.css"
 
 export default function PlaceDetails() {
   const { slug } = useParams()
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const result = getPlace(slug)
 
   if (!result) {
@@ -20,8 +20,10 @@ export default function PlaceDetails() {
   }
 
   const { city, gallery } = result
-  const title = t(`places.${slug}.name`)
-  const description = t(`places.${slug}.description`)
+  const title = localized(result.name, i18n.language)
+  const description = localized(result.summary, i18n.language)
+  const story = localized(result.story, i18n.language)
+  const cityName = localized(city.name, i18n.language)
 
   return (
     <main className="city-details">
@@ -29,7 +31,7 @@ export default function PlaceDetails() {
       <header className="cd-hero" style={{ backgroundImage: `url(${result.image})` }}>
         <div className="hero-overlay" />
         <div className="cd-hero-inner">
-          <span className="eyebrow">{t(`cities.${city.slug}.name`)}</span>
+          <span className="eyebrow">{cityName}</span>
           <h1>{title}</h1>
           <p>{description}</p>
         </div>
@@ -37,7 +39,7 @@ export default function PlaceDetails() {
 
       <section className="section content-section">
         <h2>{t("placeDetails.about")}</h2>
-        <p className="lead">{t(`places.${slug}.longDescription`)}</p>
+        <p className="lead">{story}</p>
       </section>
 
       <section className="section cd-gallery" aria-label={t("placeDetails.gallery")}>
@@ -50,7 +52,7 @@ export default function PlaceDetails() {
 
       <div className="section cd-back">
         <Link className="back-btn" to={`/city/${city.slug}`}>
-          {t("placeDetails.backToCity", { city: t(`cities.${city.slug}.name`) })}
+          {t("placeDetails.backToCity", { city: cityName })}
         </Link>
       </div>
     </main>
