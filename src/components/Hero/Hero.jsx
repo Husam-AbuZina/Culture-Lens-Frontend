@@ -1,12 +1,10 @@
 import { Link } from "react-router-dom"
 import { useTranslation } from "react-i18next"
 import PageMeta from "../PageMeta/PageMeta"
-import { getAllCities, localized } from "../../data/cities"
 import "./Hero.css"
 
 export default function Hero() {
-  const { t, i18n } = useTranslation()
-  const cities = getAllCities()
+  const { t } = useTranslation()
 
   return (
     <section className="hero-wrap">
@@ -15,10 +13,7 @@ export default function Hero() {
       <div className="hero-cover">
         <div className="hero-image" role="img" aria-label={t("hero.bgAria")}>
           <div className="hero-image-shade" />
-          <div className="hero-image-meta">
-            <span>31.7683° N</span>
-            <span>35.2137° E</span>
-          </div>
+          <div className="hero-image-meta"><span>31.7683° N</span><span>35.2137° E</span></div>
         </div>
 
         <div className="hero-editorial">
@@ -28,30 +23,14 @@ export default function Hero() {
             <h1>{t("hero.title")}</h1>
             <p>{t("hero.sub")}</p>
             <div className="hero-actions">
-              <a className="button-link" href="#cities">{t("hero.cta")}</a>
-              <Link className="text-link" to="/about">{t("hero.learnMore")} ↗</Link>
+              <Link className="button-link hero-primary-cta" to="/cities#explore-destinations">{t("hero.cta")}</Link>
+              <a className="text-link" href="#choose-a-city">{t("hero.discoverCities")} ↓</a>
             </div>
+            <p className="hero-trust">{t("hero.trust")}</p>
           </div>
-          <div className="hero-footnote">
-            <span>AR / EN</span>
-            <span>Places · Memory · Culture</span>
-          </div>
+          <div className="hero-footnote"><span>AR / EN</span><span>Places · Memory · Culture</span></div>
         </div>
       </div>
-
-      <nav className="atlas-index" aria-label={t("cities.title")}>
-        <div className="atlas-index-title">
-          <span className="atlas-cross">✦</span>
-          <span>{t("cities.eyebrow")}</span>
-        </div>
-        {cities.map((city, index) => (
-          <Link to={`/city/${city.slug}`} className="atlas-city" key={city.slug}>
-            <span className="atlas-number">0{index + 1}</span>
-            <span>{localized(city.name, i18n.language)}</span>
-            <span className="atlas-arrow">↗</span>
-          </Link>
-        ))}
-      </nav>
     </section>
   )
 }

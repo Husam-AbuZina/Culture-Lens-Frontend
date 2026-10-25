@@ -3,7 +3,6 @@ import ScrollToTop from "./ScrollToTop.jsx"
 import Navbar from "./components/Navbar/Navbar.jsx"
 import Hero from "./components/Hero/Hero.jsx"
 import Cities from "./components/Cities/Cities.jsx"
-import Heritage from "./components/Heritage/Heritage.jsx"
 import HashtagWall from "./components/HashtagWall/HashtagWall.jsx"
 import Footer from "./components/Footer/Footer.jsx"
 import CityDetails from "./components/CityDetails/CityDetails.jsx"
@@ -19,7 +18,6 @@ function Home() {
     <main>
       <Hero />
       <Cities />
-      <Heritage />
       <HashtagWall />
     </main>
   )

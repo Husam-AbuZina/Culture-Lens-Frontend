@@ -56,14 +56,6 @@ export default function CityDetails() {
         </div>
       </section>
 
-      <section className="section cd-gallery" aria-label={t("city.photos")}>
-        {city.gallery.map((src, index) => (
-          <figure className="cd-shot" key={src}>
-            <img src={src} alt={`${cityName} ${index + 1}`} loading="lazy" />
-          </figure>
-        ))}
-      </section>
-
       <section className="section">
         <h2 className="cd-h2">{t("city.heritagePlaces")}</h2>
         <div className="cd-grid">

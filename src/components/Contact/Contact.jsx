@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import { useTranslation } from "react-i18next"
 import PageMeta from "../PageMeta/PageMeta"
+import { cloudinaryImage } from "../../data/cities"
 import "./Contact.css"
 
 const initial = { name: "", email: "", subject: "", message: "" }
@@ -10,6 +11,8 @@ export default function Contact() {
   const { t } = useTranslation()
   const [form, setForm] = useState(initial)
   const [error, setError] = useState("")
+  const heroImage = cloudinaryImage("city-ramallah-al-bireh.webp", 2000)
+  const locationImage = cloudinaryImage("city-hebron.webp", 1200)
 
   const onChange = (event) => {
     setForm({ ...form, [event.target.name]: event.target.value })
@@ -29,8 +32,8 @@ export default function Contact() {
 
   return (
     <main className="contact">
-      <PageMeta title={t("contact.hero.title")} description={t("contact.hero.sub")} />
-      <header className="contact-hero" style={{ backgroundImage: "url(/images/OldTown.jpg)" }}>
+      <PageMeta title={t("contact.hero.title")} description={t("contact.hero.sub")} image={heroImage} />
+      <header className="contact-hero" style={{ backgroundImage: `url(${heroImage})` }}>
         <div className="hero-overlay" />
         <div className="contact-hero__inner">
           <span className="eyebrow">{t("contact.hero.eyebrow")}</span>
@@ -76,7 +79,7 @@ export default function Contact() {
             </ul>
           </div>
           <div className="map card">
-            <img src="/images/placeholder-map.jpg" alt={t("contact.info.mapAlt")} />
+            <img src={locationImage} alt={t("contact.info.mapAlt")} loading="lazy" />
             <div className="map-caption">{t("contact.info.mapCaption")}</div>
           </div>
         </aside>

@@ -17,8 +17,19 @@
     "kicker": "See culture more closely",
     "title": "Discover Palestine through its places and stories.",
     "sub": "Explore a growing bilingual guide to Palestinian cities, heritage sites, architecture, and living traditions.",
-    "cta": "Explore cities",
-    "learnMore": "Our story"
+    "cta": "Explore destinations",
+    "learnMore": "Our story",
+    "chooseCity": "Choose a city",
+    "discoverCities": "Discover cities",
+    "trust": "12 cities · 295 destinations · Arabic & English"
+  },
+  "homeCities": {
+    "eyebrow": "Start with a city",
+    "title": "Choose where your story begins.",
+    "description": "Enter a city guide to browse its landmarks, cultural places, architecture, and local stories.",
+    "exploreAll": "Explore all destinations",
+    "places": "places",
+    "openGuide": "Open city guide"
   },
   "cities": {
     "eyebrow": "Places to begin",
@@ -56,6 +67,7 @@
     "cities": "cities",
     "destinations": "destinations",
     "languages": "languages",
+    "discoverCities": "Discover cities",
     "cityDirectoryEyebrow": "Start with a city",
     "cityDirectoryTitle": "City guides",
     "cityDirectoryDescription": "Each city guide brings together its places, landmarks, and local stories in one clear route of discovery.",

@@ -1,17 +1,19 @@
 import { Link } from "react-router-dom"
 import { useTranslation } from "react-i18next"
 import PageMeta from "../PageMeta/PageMeta"
+import { cloudinaryImage } from "../../data/cities"
 import "./About.css"
 
 export default function About() {
   const { t } = useTranslation()
   const values = t("about.values.items", { returnObjects: true })
   const milestones = t("about.timeline.items", { returnObjects: true })
+  const heroImage = cloudinaryImage("city-jerusalem.webp", 2000)
 
   return (
     <main className="about">
-      <PageMeta title={t("about.hero.title")} description={t("about.hero.sub")} />
-      <header className="about-hero" style={{ backgroundImage: "url(/images/OldTown.jpg)" }}>
+      <PageMeta title={t("about.hero.title")} description={t("about.hero.sub")} image={heroImage} />
+      <header className="about-hero" style={{ backgroundImage: `url(${heroImage})` }}>
         <div className="hero-overlay" />
         <div className="about-hero__inner">
           <span className="eyebrow">{t("about.hero.eyebrow")}</span>

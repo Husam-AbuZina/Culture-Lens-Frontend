@@ -59,6 +59,7 @@ export default function CitiesPage() {
           <span className="eyebrow">{t("explore.eyebrow")}</span>
           <h1>{t("explore.title")}</h1>
           <p>{t("explore.subtitle")}</p>
+          <a className="cp-discover-cities button-link" href="#city-directory">{t("explore.discoverCities")} ↓</a>
           <div className="cp-stats" aria-label={t("explore.statsLabel")}>
             <span><strong>{cities.length}</strong>{t("explore.cities")}</span>
             <span><strong>{places.length}</strong>{t("explore.destinations")}</span>
@@ -67,7 +68,7 @@ export default function CitiesPage() {
         </div>
       </header>
 
-      <section className="section cp-city-directory" aria-labelledby="city-directory-title">
+      <section id="city-directory" className="section cp-city-directory" aria-labelledby="city-directory-title">
         <header className="cp-section-heading">
           <div>
             <span className="eyebrow">{t("explore.cityDirectoryEyebrow")}</span>
@@ -90,7 +91,7 @@ export default function CitiesPage() {
         </div>
       </section>
 
-      <section className="cp-destination-explorer" aria-labelledby="destination-explorer-title">
+      <section id="explore-destinations" className="cp-destination-explorer" aria-labelledby="destination-explorer-title">
         <div className="section">
           <header className="cp-section-heading cp-explorer-heading">
             <div>
