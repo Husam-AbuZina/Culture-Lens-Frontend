@@ -1,81 +1,61 @@
-import React from 'react'
-import './Navbar.css';
-import { useTranslation } from 'react-i18next';
+import { useState } from "react"
+import { NavLink } from "react-router-dom"
+import { useTranslation } from "react-i18next"
+import "./Navbar.css"
+
+const links = [
+  { to: "/", key: "home" },
+  { to: "/cities", key: "cities" },
+  { to: "/about", key: "about" },
+  { to: "/contact", key: "contact" },
+]
 
 export default function Navbar() {
-  const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation()
+  const [open, setOpen] = useState(false)
 
-  const toggleLanguage = () => {
-    const newLang = i18n.language.startsWith("ar") ? "en" : "ar";
-    i18n.changeLanguage(newLang);
-    document.documentElement.lang = newLang;
-    document.documentElement.dir = newLang === "ar" ? "rtl" : "ltr";
-  };
+  const toggleLanguage = async () => {
+    const language = i18n.resolvedLanguage?.startsWith("ar") ? "en" : "ar"
+    await i18n.changeLanguage(language)
+    document.documentElement.lang = language
+    document.documentElement.dir = i18n.dir(language)
+  }
 
   return (
-    <header className="navbar cl-nav">
-      <div className="section cl-wrap">
-        {/* LEFT: Logo */}
-        <a href="/" className="cl-brand" aria-label={t("siteName")}>
-          <span className="cl-logo" aria-hidden>
-            {/* magnifying glass */}
-            <svg viewBox="0 0 24 24" width="28" height="28" fill="none">
-              <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="2"/>
-              <path d="M16.5 16.5L21 21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-            </svg>
-          </span>
+    <header className="cl-nav">
+      <div className="cl-wrap">
+        <NavLink to="/" className="cl-brand" aria-label={t("siteName")}>
+          <img src="/culture-lens-logo.svg" alt="" className="cl-logo" />
           <span className="cl-name">{t("siteName")}</span>
-        </a>
+        </NavLink>
 
-        {/* CENTER: Nav links */}
-        <nav className="cl-center" aria-label="Primary">
-          <a href="/" className="cl-link">{t("nav.home")}</a>
-          <a href="/cities" className="cl-link">{t("nav.cities")}</a>
-          <a href="/about" className="cl-link">{t("nav.about")}</a>
-          <a href="/contact" className="cl-link">{t("nav.contact")}</a>
+        <nav className={`cl-center ${open ? "is-open" : ""}`} aria-label={t("nav.primary")}>
+          {links.map((link) => (
+            <NavLink
+              key={link.to}
+              to={link.to}
+              onClick={() => setOpen(false)}
+              className={({ isActive }) => `cl-link ${isActive ? "is-active" : ""}`}
+            >
+              {t(`nav.${link.key}`)}
+            </NavLink>
+          ))}
         </nav>
 
-        {/* RIGHT: Icons */}
-        <div className="cl-right" aria-label="Quick actions">
-          {/* 🌐 Language toggle */}
-          <button className="icon-btn" aria-label="Toggle Language" onClick={toggleLanguage}>
-            {i18n.language.startsWith("ar") ? "EN" : "ع"}
+        <div className="cl-actions">
+          <button className="language-btn" onClick={toggleLanguage} aria-label={t("common.changeLanguage")}>
+            {i18n.resolvedLanguage?.startsWith("ar") ? "EN" : "عربي"}
           </button>
-
-          <button className="icon-btn" aria-label="Account">
-            {/* user */}
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none">
-              <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z" stroke="currentColor" strokeWidth="2"/>
-              <path d="M4 20a8 8 0 0 1 16 0" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-            </svg>
-          </button>
-          <button className="icon-btn" aria-label="Search">
-            {/* search */}
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none">
-              <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="2"/>
-              <path d="M16.5 16.5L21 21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-            </svg>
-          </button>
-          <button className="icon-btn" aria-label="Favorites">
-            {/* heart */}
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78L12 21.35l8.84-8.96a5.5 5.5 0 0 0 0-7.78Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
-            </svg>
-          </button>
-          <button className="icon-btn" aria-label="Cart">
-            {/* cart */}
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none">
-              <path d="M6 6h15l-1.5 9H8L6 3H3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <circle cx="9.5" cy="20" r="1.5" stroke="currentColor" strokeWidth="2"/>
-              <circle cx="18" cy="20" r="1.5" stroke="currentColor" strokeWidth="2"/>
-            </svg>
+          <button
+            className={`cl-burger ${open ? "is-open" : ""}`}
+            type="button"
+            aria-label={open ? t("nav.closeMenu") : t("nav.openMenu")}
+            aria-expanded={open}
+            onClick={() => setOpen((value) => !value)}
+          >
+            <span /><span /><span />
           </button>
         </div>
-
-        {/* MOBILE: hamburger (optional) */}
-        <button className="cl-burger" aria-label="Open menu">
-          <span/><span/><span/>
-        </button>
       </div>
     </header>
   )

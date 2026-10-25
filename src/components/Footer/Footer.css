@@ -1,89 +1,136 @@
-.cl-footer{
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 56px 20px 24px;
-  color: #111827;
-  background: #fff;
+.cl-footer {
+  margin-top: 0;
+  padding: 82px max(32px, calc((100vw - 1320px) / 2)) 28px;
+  background: var(--ink);
+  color: #fff;
 }
 
-.cl-footer-grid{
+.cl-footer::before {
+  content: "CULTURE LENS";
+  display: block;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-family: var(--serif);
+  font-size: clamp(3.5rem, 12vw, 10.5rem);
+  font-weight: 500;
+  letter-spacing: -0.065em;
+  line-height: 0.8;
+}
+
+.cl-footer-grid {
   display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr 1.4fr;
-  gap: 40px 28px;
-  align-items: start;
+  grid-template-columns: minmax(0, 2fr) 1fr 1fr;
+  gap: 0;
+  padding: 48px 0 64px;
 }
 
-.logo{
-  margin: 0 0 16px;
-  font-size: 28px;
-  font-weight: 900;
-  letter-spacing: .2px;
-}
-.dot{ color:#111827; }
-
-.addr{
-  color:#6b7280;
-  font-style: normal;
-  line-height: 1.7;
+.footer-brand,
+.footer-column {
+  min-height: 240px;
+  padding: 0 34px;
+  border-inline-end: 1px solid rgba(255, 255, 255, 0.16);
 }
 
-.col h4{
-  margin: 0 0 16px;
-  color:#6b7280;
+.footer-brand {
+  padding-inline-start: 0;
+}
+
+.footer-column:last-child {
+  border-inline-end: 0;
+}
+
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
   font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
-.col ul{ list-style:none; margin:0; padding:0; }
-.col li{ margin: 14px 0; }
-.col a{
-  color:#111827; text-decoration:none; font-weight:700;
-}
-.col a:hover{ opacity:.7; }
-
-/* Newsletter form (underline style) */
-.inline-form{
-  display:flex; gap:18px; align-items:center; flex-wrap:wrap;
-}
-.inline-form input{
-  border: none;
-  border-bottom: 2px solid #cfcfcf;
-  padding: 10px 2px;
-  min-width: 260px;
-  outline: none;
-  color:#111827;
-  background: transparent;
-}
-.inline-form input::placeholder{ color:#9ca3af; }
-.underline-btn{
-  background: transparent;
-  border: none;
-  border-bottom: 2px solid #cfcfcf;
-  padding: 10px 0;
-  font-weight: 800;
-  cursor: pointer;
-  color:#111827;
-}
-.underline-btn:hover{ opacity:.8; }
-
-/* Divider + fine print */
-.divider{
-  margin: 48px 0 18px;
-  border: 0;
-  border-top: 1px solid #e5e7eb;
-}
-.fineprint{
-  color:#4b5563;
+.footer-logo img {
+  width: 54px;
+  height: 54px;
+  filter: brightness(0) invert(1);
 }
 
-/* Responsive */
-@media (max-width: 960px){
-  .cl-footer-grid{
+.footer-brand p {
+  max-width: 42ch;
+  margin-top: 28px;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.footer-column h2 {
+  margin-bottom: 18px;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: inherit;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.footer-column a {
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+}
+
+.footer-column a:hover {
+  color: #fff;
+}
+
+.fineprint {
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.78rem;
+}
+
+[dir="rtl"] .cl-footer::before {
+  content: "عدسة الثقافة";
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+  letter-spacing: 0;
+}
+
+@media (max-width: 760px) {
+  .cl-footer {
+    padding-inline: 20px;
+  }
+
+  .cl-footer-grid {
     grid-template-columns: 1fr 1fr;
   }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+    min-height: auto;
+    margin-bottom: 36px;
+    padding: 0 0 36px;
+    border-inline-end: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  }
 }
-@media (max-width: 560px){
-  .cl-footer-grid{
+
+@media (max-width: 480px) {
+  .cl-footer-grid {
     grid-template-columns: 1fr;
   }
-  .inline-form input{ min-width: 100%; }
+
+  .footer-column {
+    min-height: auto;
+    padding: 28px 0;
+    border-inline-end: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  }
 }

@@ -1,64 +1,39 @@
-import React from 'react'
-import './Footer.css'
-import { useTranslation } from 'react-i18next'
+import { Link } from "react-router-dom"
+import { useTranslation } from "react-i18next"
+import "./Footer.css"
 
 export default function Footer() {
   const { t } = useTranslation()
-  const year = new Date().getFullYear()
 
   return (
     <footer className="cl-footer">
       <div className="cl-footer-grid">
-        {/* Brand + Address */}
-        <div className="col brand">
-          <h3 className="logo">{t("footer.brand")}<span className="dot">.</span></h3>
-          <address className="addr">
-            {t("footer.address")}<br/>
-          </address>
+        <div className="footer-brand">
+          <Link to="/" className="footer-logo">
+            <img src="/culture-lens-logo.svg" alt="" />
+            <span>{t("siteName")}</span>
+          </Link>
+          <p>{t("footer.tagline")}</p>
         </div>
 
-        {/* Links */}
-        <nav className="col">
-          <h4>{t("footer.links.title")}</h4>
-          <ul>
-            <li><a href="#home">{t("nav.home")}</a></li>
-            <li><a href="#cities">{t("nav.cities")}</a></li>
-            <li><a href="#about">{t("nav.about")}</a></li>
-            <li><a href="#contact">{t("nav.contact")}</a></li>
-          </ul>
+        <nav className="footer-column" aria-label={t("footer.explore")}>
+          <h2>{t("footer.explore")}</h2>
+          <Link to="/">{t("nav.home")}</Link>
+          <Link to="/cities">{t("nav.cities")}</Link>
+          <Link to="/about">{t("nav.about")}</Link>
+          <Link to="/contact">{t("nav.contact")}</Link>
         </nav>
 
-        {/* Help */}
-        <nav className="col">
-          <h4>{t("footer.help.title")}</h4>
-          <ul>
-            <li><a href="#payment">{t("footer.help.payment")}</a></li>
-            <li><a href="#returns">{t("footer.help.returns")}</a></li>
-            <li><a href="#privacy">{t("footer.help.privacy")}</a></li>
-          </ul>
+        <nav className="footer-column" aria-label={t("footer.information")}>
+          <h2>{t("footer.information")}</h2>
+          <Link to="/privacy">{t("footer.privacy")}</Link>
+          <Link to="/terms">{t("footer.terms")}</Link>
+          <a href="mailto:husamzinap@gmail.com">husamzinap@gmail.com</a>
         </nav>
-
-        {/* Newsletter */}
-        <div className="col newsletter">
-          <h4>{t("footer.newsletter.title")}</h4>
-          <form
-            className="inline-form"
-            onSubmit={(e)=>{e.preventDefault(); alert(t("footer.newsletter.subscribed"))}}
-          >
-            <input
-              type="email"
-              placeholder={t("footer.newsletter.placeholder")}
-              aria-label={t("footer.newsletter.aria")}
-              required
-            />
-            <button type="submit" className="underline-btn">{t("footer.newsletter.button")}</button>
-          </form>
-        </div>
       </div>
-
-      <hr className="divider" />
-
-      <div className="fineprint">© {year} {t("siteName")}. {t("footer.rights")}</div>
+      <div className="fineprint">
+        © {new Date().getFullYear()} {t("siteName")}. {t("footer.rights")}
+      </div>
     </footer>
   )
 }

@@ -1,0 +1,396 @@
+{
+  "effectiveDate": "Effective date",
+  "lastUpdated": "Last updated",
+  "contents": "On this page",
+  "notice": "This is a practical project policy, not legal advice. A qualified lawyer should review it before commercial launch or whenever Culture Lens begins collecting or storing additional personal information.",
+  "privacy": {
+    "title": "Privacy policy",
+    "intro": "This policy explains what information Culture Lens currently handles, why it is used, the choices available to visitors, and how future features will be disclosed.",
+    "effectiveDate": "June 8, 2026",
+    "lastUpdated": "June 8, 2026",
+    "sections": [
+      {
+        "id": "privacy-operator",
+        "title": "Who operates Culture Lens",
+        "paragraphs": [
+          "Culture Lens is an independent cultural-guide project currently based in Hebron, Palestine. “Culture Lens,” “we,” “us,” and “our” refer to the project and the people responsible for operating this website.",
+          "Privacy questions may be sent to husamzinap@gmail.com or raised by telephone at +970 569 683 719."
+        ]
+      },
+      {
+        "id": "privacy-scope",
+        "title": "Scope of this policy",
+        "paragraphs": [
+          "This policy applies to the Culture Lens website, including city and place guides, legal pages, language preference, and contact workflow. It does not govern third-party websites, email providers, browsers, device software, or hosting services that publish their own notices."
+        ]
+      },
+      {
+        "id": "privacy-current-behavior",
+        "title": "Current website behavior",
+        "paragraphs": [
+          "Culture Lens is currently a static informational website. It does not provide user accounts, payments, public comments, direct uploads, saved favorites, or an internal contact-submission database.",
+          "The contact form validates entries in your browser and asks your device to open an email draft. The website itself does not transmit or store the completed form."
+        ]
+      },
+      {
+        "id": "privacy-information-provided",
+        "title": "Information you choose to provide",
+        "paragraphs": [
+          "If you email Culture Lens, your email provider sends the message to the project’s email account. Please do not send passwords, identity documents, payment information, precise private locations, confidential records, or sensitive personal information through ordinary email."
+        ],
+        "items": [
+          "Your name and contact details",
+          "The subject and contents of your inquiry",
+          "Images, stories, research leads, or files you voluntarily attach",
+          "Follow-up correspondence related to your request"
+        ]
+      },
+      {
+        "id": "privacy-technical-information",
+        "title": "Technical information",
+        "paragraphs": [
+          "Culture Lens does not currently operate its own analytics or profiling system. Ordinary internet infrastructure may nevertheless process limited information to deliver and protect the website.",
+          "Depending on the production host, server or security logs may include an IP address, request time, requested page, browser or device information, referring address, and error details. Hosting details and retention settings must be confirmed before public launch."
+        ]
+      },
+      {
+        "id": "privacy-language-storage",
+        "title": "Language preference and local storage",
+        "paragraphs": [
+          "When you switch between English and Arabic, the selected language is stored in your browser’s local storage so the preference remains available on return. You can remove it by clearing this website’s local storage or site data."
+        ]
+      },
+      {
+        "id": "privacy-cookies",
+        "title": "Cookies and similar technologies",
+        "paragraphs": [
+          "Culture Lens does not currently intentionally set advertising, behavioral-profiling, or analytics cookies and does not use targeted-advertising pixels.",
+          "A hosting or security provider may use strictly necessary technologies under its own terms. Future non-essential cookies or analytics must be disclosed, with consent or opt-out controls added where required, before activation."
+        ]
+      },
+      {
+        "id": "privacy-purposes",
+        "title": "Why information is used",
+        "paragraphs": [
+          "Information received by email is used only for reasonable project purposes connected to the communication."
+        ],
+        "items": [
+          "Responding to questions and support requests",
+          "Evaluating partnerships, research leads, corrections, and cultural contributions",
+          "Maintaining correspondence and permission records",
+          "Protecting the website, project, contributors, and visitors",
+          "Meeting legal or dispute-resolution obligations",
+          "Improving the accuracy and accessibility of Culture Lens"
+        ]
+      },
+      {
+        "id": "privacy-legal-bases",
+        "title": "Legal bases where privacy law applies",
+        "paragraphs": [
+          "The applicable legal basis depends on the visitor’s location and the context. It may include consent, steps requested before an agreement, performance of an agreement, legal obligations, or legitimate interests such as responding to inquiries and protecting the project.",
+          "Where consent is relied upon, it may be withdrawn for future processing without affecting processing that was lawful before withdrawal."
+        ]
+      },
+      {
+        "id": "privacy-sharing",
+        "title": "How information may be shared",
+        "paragraphs": [
+          "Culture Lens does not sell personal information. Email correspondence may be accessible to the project team and providers supporting email, hosting, security, or technical operations under their own contracts and privacy terms.",
+          "Information may be disclosed where reasonably necessary to comply with law, protect rights or safety, investigate abuse, defend legal claims, or complete an organizational transfer with appropriate safeguards."
+        ]
+      },
+      {
+        "id": "privacy-third-parties",
+        "title": "Third-party links and services",
+        "paragraphs": [
+          "Links to email, telephone, maps, research sources, cultural institutions, or other external services may allow those operators to receive technical or account information. Culture Lens does not control their practices, so review the relevant provider’s privacy notice before use."
+        ]
+      },
+      {
+        "id": "privacy-transfers",
+        "title": "International processing and transfers",
+        "paragraphs": [
+          "Internet, email, hosting, and cloud providers may process information in countries other than your own, where privacy and government-access rules may differ.",
+          "If Culture Lens later appoints processors or begins systematic international transfers, it should document processing locations and use contractual or other safeguards required by applicable law."
+        ]
+      },
+      {
+        "id": "privacy-retention",
+        "title": "Data retention",
+        "paragraphs": [
+          "The website does not retain contact-form contents. Email correspondence may be kept only as long as reasonably needed to answer an inquiry, maintain a relationship, document permission, resolve disputes, protect rights, or satisfy applicable requirements.",
+          "Culture Lens does not promise one universal retention period until a formal records schedule is adopted. Unneeded correspondence should be deleted or archived with restricted access."
+        ]
+      },
+      {
+        "id": "privacy-security",
+        "title": "Security",
+        "paragraphs": [
+          "Culture Lens aims to use safeguards appropriate to the information handled, including limited access, maintained dependencies, and secure configuration. No website, email service, or internet transmission is completely secure.",
+          "Do not use ordinary email for highly sensitive material. Security incidents will be assessed and notifications provided where required by applicable law."
+        ]
+      },
+      {
+        "id": "privacy-children",
+        "title": "Children’s privacy",
+        "paragraphs": [
+          "Culture Lens is a general cultural resource and is not designed to collect personal information from children under 13. It does not ask for age or provide child-directed accounts or submission features.",
+          "Children should not send personal information without a parent or guardian. Contact us if you believe a child has sent information so it can be reviewed and deleted where appropriate."
+        ]
+      },
+      {
+        "id": "privacy-rights",
+        "title": "Your privacy rights",
+        "paragraphs": [
+          "Depending on the law that applies, you may have the following rights. They may be subject to identity verification, legal exceptions, or the fact that Culture Lens does not hold the requested information."
+        ],
+        "items": [
+          "Be informed about processing",
+          "Request access to or a copy of personal information",
+          "Request correction of inaccurate information",
+          "Request deletion in applicable circumstances",
+          "Request restriction of processing",
+          "Object to certain processing",
+          "Request portability where legally available",
+          "Withdraw consent for future processing",
+          "Complain to an applicable data-protection authority"
+        ]
+      },
+      {
+        "id": "privacy-requests",
+        "title": "How to make a privacy request",
+        "paragraphs": [
+          "Email husamzinap@gmail.com with “Privacy Request” in the subject. Describe the request and the email address or interaction involved so relevant records can be located.",
+          "We may request proportionate identity verification. We will respond within the period required by applicable law, or otherwise within a reasonable time, and explain any refusal where appropriate."
+        ]
+      },
+      {
+        "id": "privacy-automated-decisions",
+        "title": "Automated decisions and marketing",
+        "paragraphs": [
+          "Culture Lens does not currently use personal information for automated decisions, behavioral profiling, targeted advertising, or direct-marketing mailing lists. This policy and any required controls must be updated before such practices begin."
+        ]
+      },
+      {
+        "id": "privacy-changes",
+        "title": "Changes to this policy",
+        "paragraphs": [
+          "This policy may change when features, providers, laws, or project operations change. The revised policy will display a new last-updated date.",
+          "Material changes should be highlighted and, where legally required and practical, communicated before the new practice begins."
+        ]
+      },
+      {
+        "id": "privacy-contact",
+        "title": "Contact",
+        "paragraphs": [
+          "Privacy inquiries and requests may be sent to Culture Lens at husamzinap@gmail.com.",
+          "Postal and formal legal-contact details should be added before a commercial public launch where required by the laws governing the operator."
+        ]
+      }
+    ]
+  },
+  "terms": {
+    "title": "Terms of use",
+    "intro": "These terms govern access to and use of Culture Lens, including its city and place guides, text, images, design, and contact services.",
+    "effectiveDate": "June 8, 2026",
+    "lastUpdated": "June 8, 2026",
+    "sections": [
+      {
+        "id": "terms-acceptance",
+        "title": "Acceptance of these terms",
+        "paragraphs": [
+          "By accessing or using Culture Lens, you agree to these Terms of Use and the Privacy Policy. If you do not agree, do not use the website.",
+          "If you act for an organization, you represent that you have authority to accept these terms for it."
+        ]
+      },
+      {
+        "id": "terms-project-status",
+        "title": "Project description and current status",
+        "paragraphs": [
+          "Culture Lens is an evolving bilingual cultural-guide project. It currently provides informational city and heritage-place pages and an email-based contact workflow.",
+          "The website remains under development. Features, routes, descriptions, images, availability, and editorial practices may change."
+        ]
+      },
+      {
+        "id": "terms-eligibility",
+        "title": "Eligibility and responsible use",
+        "paragraphs": [
+          "You may use the public website if you can lawfully agree to these terms. Children should use it with appropriate parental or guardian involvement. You are responsible for your device, communications, and compliance with applicable law."
+        ]
+      },
+      {
+        "id": "terms-purpose",
+        "title": "Informational and educational purpose",
+        "paragraphs": [
+          "Culture Lens is intended for general cultural discovery, education, and inspiration. It is not legal, academic, travel-safety, religious, political, conservation, emergency, or other professional advice.",
+          "Do not rely on it as the sole source for research, permissions, access conditions, opening hours, travel decisions, or matters where accuracy is critical."
+        ]
+      },
+      {
+        "id": "terms-accuracy",
+        "title": "Cultural and historical accuracy",
+        "paragraphs": [
+          "Culture Lens aims to improve accuracy and context, but current content may be incomplete, simplified, disputed, outdated, or awaiting expert and source review.",
+          "Names, descriptions, boundaries, dates, translations, and interpretations may vary. Consult primary sources, qualified researchers, local institutions, and community knowledge holders where appropriate."
+        ]
+      },
+      {
+        "id": "terms-respect",
+        "title": "Respect for communities and sacred places",
+        "paragraphs": [
+          "Use Culture Lens in a manner that respects communities, religious practices, cultural property, privacy, dignity, conservation rules, and site restrictions.",
+          "A place or image appearing here is not permission to enter restricted areas, photograph people, use drones, reproduce sacred material, remove objects, or disregard local guidance."
+        ]
+      },
+      {
+        "id": "terms-permitted-use",
+        "title": "Permitted use",
+        "paragraphs": [
+          "You may browse the website and share links for personal, educational, and non-commercial reference, subject to these terms and any notice attached to specific material.",
+          "Limited quotation may be allowed by applicable law when accurate, proportionate, attributed, and not presented as an endorsement."
+        ]
+      },
+      {
+        "id": "terms-intellectual-property",
+        "title": "Intellectual property",
+        "paragraphs": [
+          "The Culture Lens name, official logo, original interface, original text, page organization, and project-created materials may be protected by copyright, trademark, design, database, or other rights.",
+          "These terms transfer no ownership. Rights in third-party photographs, archives, names, and contributed material remain with their respective owners."
+        ]
+      },
+      {
+        "id": "terms-images",
+        "title": "Images, licenses, and attribution",
+        "paragraphs": [
+          "Images may be owned by Culture Lens, licensed, used with permission, or subject to third-party rights. Appearance on the website does not mean an image is free to download, republish, modify, sell, train models on, or use commercially.",
+          "An image-rights and attribution review should be completed before public launch. Report possible infringement or missing credit with the image URL and supporting details."
+        ]
+      },
+      {
+        "id": "terms-reuse",
+        "title": "Downloading and reusing content",
+        "paragraphs": [
+          "Unless a specific license or applicable law permits otherwise, written permission is required before reproducing substantial text, using branding, republishing images, creating commercial derivatives, or distributing a copied collection.",
+          "Approved reuse must preserve required attribution, contextual integrity, rights notices, and stated restrictions."
+        ]
+      },
+      {
+        "id": "terms-prohibited",
+        "title": "Prohibited activities",
+        "paragraphs": [
+          "You must not misuse Culture Lens or help another person do so."
+        ],
+        "items": [
+          "Use the website for unlawful, fraudulent, threatening, discriminatory, exploitative, or harmful conduct",
+          "Misrepresent authorship, affiliation, endorsement, or cultural context",
+          "Bypass security, probe vulnerabilities, introduce malicious code, or disrupt availability",
+          "Collect personal information without authorization",
+          "Burden the service through high-volume automated extraction",
+          "Remove attribution, provenance, trademark, or rights notices",
+          "Submit material that infringes rights, exposes private information, or creates safety risks"
+        ]
+      },
+      {
+        "id": "terms-automation",
+        "title": "Automated access and model training",
+        "paragraphs": [
+          "Ordinary search-engine indexing consistent with published technical controls is permitted. High-volume scraping, dataset creation, or systematic image extraction requires written permission.",
+          "No permission is granted to use protected Culture Lens branding, images, or substantial original content to train, evaluate, or commercialize machine-learning systems unless a license or law clearly permits it."
+        ]
+      },
+      {
+        "id": "terms-submissions",
+        "title": "Current and future submissions",
+        "paragraphs": [
+          "Culture Lens currently has no public upload or posting feature. Sending an idea, story, image, correction, or research lead by email does not guarantee review, publication, payment, credit, confidentiality, or return.",
+          "Before community submissions launch, separate rules should address consent, verification, moderation, licensing, attribution, privacy, safeguarding, and removal."
+        ]
+      },
+      {
+        "id": "terms-contributor-rights",
+        "title": "Contributor ownership and permissions",
+        "paragraphs": [
+          "You retain rights you lawfully hold in material you send and must have authority to share it, including permissions concerning photographers, identifiable people, archives, and restricted material.",
+          "Sending an email does not grant Culture Lens a broad publication license. Publication or adaptation should be governed by a written agreement covering license, attribution, uses, territory, duration, and withdrawal."
+        ]
+      },
+      {
+        "id": "terms-moderation",
+        "title": "Editorial review and removal",
+        "paragraphs": [
+          "Culture Lens may edit, decline, unpublish, correct, restrict, or remove content for accuracy, safety, rights, privacy, cultural sensitivity, legal, technical, or editorial reasons.",
+          "Correction, attribution, and removal requests will be assessed in context. Removal may not be possible where retention is legally required or copies exist outside Culture Lens systems."
+        ]
+      },
+      {
+        "id": "terms-third-party",
+        "title": "Third-party websites and resources",
+        "paragraphs": [
+          "External links are provided for convenience or context. Culture Lens does not control or necessarily endorse third-party content, availability, security, products, or privacy practices. Your dealings with third parties are governed by their terms."
+        ]
+      },
+      {
+        "id": "terms-warranties",
+        "title": "No warranties",
+        "paragraphs": [
+          "To the fullest extent permitted by law, Culture Lens is provided “as is” and “as available.” We do not guarantee uninterrupted access, error-free operation, complete security, accuracy, fitness for purpose, or that every item is cleared for your intended use.",
+          "Nothing in these terms excludes rights or warranties that cannot lawfully be excluded."
+        ]
+      },
+      {
+        "id": "terms-liability",
+        "title": "Limitation of liability",
+        "paragraphs": [
+          "To the fullest extent permitted by law, Culture Lens and project contributors are not liable for indirect, incidental, special, consequential, or similar losses arising from use, inability to use, reliance on content, third-party services, or unauthorized access.",
+          "Liability that cannot legally be excluded or limited remains unaffected."
+        ]
+      },
+      {
+        "id": "terms-indemnity",
+        "title": "Responsibility for your conduct",
+        "paragraphs": [
+          "To the extent permitted by law, you are responsible for losses, claims, or costs caused by unlawful misuse, infringement of another person’s rights, or material submitted without authority.",
+          "This does not require consumers to waive protections that cannot lawfully be waived."
+        ]
+      },
+      {
+        "id": "terms-availability",
+        "title": "Availability and modification",
+        "paragraphs": [
+          "Culture Lens may update, suspend, restrict, redesign, or discontinue any part of the website without guaranteeing continuous availability. Maintenance, security events, provider outages, and project capacity may affect access."
+        ]
+      },
+      {
+        "id": "terms-suspension",
+        "title": "Suspension and enforcement",
+        "paragraphs": [
+          "Culture Lens may block or restrict access, reject communications, preserve evidence, or take appropriate action when necessary to protect the project, services, communities, users, or legal rights.",
+          "Failure to enforce a provision immediately does not waive later enforcement."
+        ]
+      },
+      {
+        "id": "terms-law",
+        "title": "Applicable law and disputes",
+        "paragraphs": [
+          "These terms are governed by laws applicable to the Culture Lens operator in Palestine, without overriding mandatory protections that apply in your place of residence.",
+          "Before filing a formal claim, contact husamzinap@gmail.com and allow a reasonable opportunity for informal resolution. Jurisdiction and dispute procedures should be confirmed by legal counsel before commercial launch."
+        ]
+      },
+      {
+        "id": "terms-changes",
+        "title": "Changes to these terms",
+        "paragraphs": [
+          "Culture Lens may revise these terms to reflect new features, practices, laws, risks, or operations. The updated version will display a revised date.",
+          "Continued use after revised terms become effective means acceptance where legally valid. Material changes may require additional notice or consent."
+        ]
+      },
+      {
+        "id": "terms-contact",
+        "title": "Contact",
+        "paragraphs": [
+          "Questions, rights concerns, corrections, and permission requests may be sent to husamzinap@gmail.com. Include the relevant URL, a clear description, and supporting information where appropriate."
+        ]
+      }
+    ]
+  }
+}

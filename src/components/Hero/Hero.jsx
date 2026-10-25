@@ -1,36 +1,36 @@
-import React from "react";
-import "./Hero.css";
-import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom"
+import { useTranslation } from "react-i18next"
+import PageMeta from "../PageMeta/PageMeta"
+import "./Hero.css"
 
 export default function Hero() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation()
 
   return (
-    <section className="hero-wrap" lang={i18n.language}>
-      {/* Background image */}
-      <div
-        className="hero-bg"
-        role="img"
-        aria-label={t("hero.bgAria")}
-      />
+    <section className="hero-wrap">
+      <PageMeta description={t("hero.sub")} />
 
-      {/* Right card */}
-      <div className="hero-card">
-        <span className="hero-kicker">{t("hero.kicker")}</span>
+      <div className="hero-cover">
+        <div className="hero-image" role="img" aria-label={t("hero.bgAria")}>
+          <div className="hero-image-shade" />
+          <div className="hero-image-meta"><span>31.7683° N</span><span>35.2137° E</span></div>
+        </div>
 
-        <h1 className="hero-title">
-          {t("hero.titleLine1")}<br />{t("hero.titleLine2")}
-        </h1>
-
-        <p className="hero-sub">{t("hero.sub")}</p>
-
-        <button
-          className="hero-cta"
-          onClick={() => (window.location.hash = "#cities")}
-        >
-          {t("hero.cta")}
-        </button>
+        <div className="hero-editorial">
+          <span className="hero-edition">Culture Lens / 001</span>
+          <div className="hero-copy">
+            <span className="eyebrow">{t("hero.kicker")}</span>
+            <h1>{t("hero.title")}</h1>
+            <p>{t("hero.sub")}</p>
+            <div className="hero-actions">
+              <Link className="button-link hero-primary-cta" to="/cities#explore-destinations">{t("hero.cta")}</Link>
+              <a className="text-link" href="#choose-a-city">{t("hero.discoverCities")} ↓</a>
+            </div>
+            <p className="hero-trust">{t("hero.trust")}</p>
+          </div>
+          <div className="hero-footnote"><span>AR / EN</span><span>Places · Memory · Culture</span></div>
+        </div>
       </div>
     </section>
-  );
+  )
 }
