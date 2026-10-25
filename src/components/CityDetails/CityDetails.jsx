@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import { useTranslation } from "react-i18next"
 import { getCity, localized } from "../../data/cities"
@@ -8,6 +9,7 @@ export default function CityDetails() {
   const { slug } = useParams()
   const { t, i18n } = useTranslation()
   const city = getCity(slug)
+  const [visibleCount, setVisibleCount] = useState(24)
 
   if (!city) {
     return (
@@ -22,19 +24,37 @@ export default function CityDetails() {
 
   const cityName = localized(city.name, i18n.language)
   const citySummary = localized(city.summary, i18n.language)
+  const mapUrl = `https://www.google.com/maps/search/?api=1&query=${city.latitude},${city.longitude}`
 
   return (
     <main className="city-details">
-      <PageMeta title={cityName} description={citySummary} />
+      <PageMeta title={cityName} description={citySummary} image={city.hero} />
       <header className="cd-hero" style={{ backgroundImage: `url(${city.hero})` }}>
         <div className="hero-overlay" />
         <div className="cd-hero-inner">
           <span className="eyebrow">{t("cityDetails.eyebrow")}</span>
           <h1>{cityName}</h1>
           <p>{citySummary}</p>
-          <Link className="button-link" to="/cities">{t("cityDetails.browseOther")}</Link>
+          <div className="cd-hero-actions">
+            <Link className="button-link" to="/cities">{t("cityDetails.browseOther")}</Link>
+            <a className="cd-map-link" href={mapUrl} target="_blank" rel="noreferrer">{t("city.openMap")} ↗</a>
+          </div>
         </div>
       </header>
+
+      <section className="section city-overview">
+        <div>
+          <span className="eyebrow">{t("city.overviewEyebrow")}</span>
+          <h2>{t("city.overviewTitle", { city: cityName })}</h2>
+        </div>
+        <div>
+          <p className="lead">{localized(city.description, i18n.language)}</p>
+          <div className="city-facts">
+            <span><strong>{city.places.length}</strong>{t("city.destinations")}</span>
+            <a href={mapUrl} target="_blank" rel="noreferrer">{city.latitude.toFixed(4)}, {city.longitude.toFixed(4)} ↗</a>
+          </div>
+        </div>
+      </section>
 
       <section className="section cd-gallery" aria-label={t("city.photos")}>
         {city.gallery.map((src, index) => (
@@ -47,7 +67,7 @@ export default function CityDetails() {
       <section className="section">
         <h2 className="cd-h2">{t("city.heritagePlaces")}</h2>
         <div className="cd-grid">
-          {city.places.map((place) => {
+          {city.places.slice(0, visibleCount).map((place) => {
             const title = localized(place.name, i18n.language)
             return (
               <Link
@@ -68,6 +88,11 @@ export default function CityDetails() {
             )
           })}
         </div>
+        {visibleCount < city.places.length && (
+          <div className="city-load-more">
+            <button className="btn-primary" type="button" onClick={() => setVisibleCount((count) => count + 24)}>{t("city.loadMore")}</button>
+          </div>
+        )}
       </section>
 
       <div className="section cd-back">

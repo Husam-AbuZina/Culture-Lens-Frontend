@@ -46,9 +46,44 @@
     "subtitle": "لكل مدينة عمارتها وتقاليدها وذاكرتها وممارساتها الثقافية الحية.",
     "explore": "فتح دليل المدينة"
   },
+  "explore": {
+    "metaTitle": "استكشف الأماكن",
+    "metaDescription": "تصفّح 295 وجهة ثقافية في 12 مدينة فلسطينية باللغتين العربية والإنجليزية.",
+    "eyebrow": "أطلس كالتشر لينس",
+    "title": "اعثر على مكان. اكتشف حكايته.",
+    "subtitle": "تصفّح المدن والوجهات الثقافية الفلسطينية، واكتشف الحكايات والعمارة والذاكرة والمشاهد التي تمنح كل مكان معناه.",
+    "statsLabel": "لمحة عن مجموعة كالتشر لينس",
+    "cities": "مدينة",
+    "destinations": "وجهة",
+    "languages": "لغات",
+    "cityDirectoryEyebrow": "ابدأ بمدينة",
+    "cityDirectoryTitle": "أدلة المدن",
+    "cityDirectoryDescription": "يجمع كل دليل مدينة أماكنها ومعالمها وحكاياتها المحلية في مسار واضح واحد للاكتشاف.",
+    "places": "مكانًا",
+    "destinationEyebrow": "تصفّح المجموعة",
+    "destinationTitle": "استكشف الوجهات",
+    "destinationDescription": "ابحث باسم مكان أو مدينة، ثم ضيّق النتائج حسب المدينة أو التصنيف.",
+    "searchLabel": "البحث في الوجهات",
+    "searchPlaceholder": "ابحث عن وجهة أو مدينة",
+    "cityFilter": "المدينة",
+    "categoryFilter": "التصنيف",
+    "allCities": "كل المدن",
+    "allCategories": "كل التصنيفات",
+    "results": "تم العثور على {{count}} وجهة",
+    "clearFilters": "مسح التصفية",
+    "viewPlace": "عرض المكان",
+    "loadMore": "عرض مزيد من الوجهات",
+    "noResultsTitle": "لم يتم العثور على أماكن",
+    "noResultsDescription": "جرّب اسمًا أو مدينة أو تصنيفًا آخر، أو امسح التصفية لتصفّح المجموعة كاملة."
+  },
   "city": {
     "heritagePlaces": "أماكن تراثية",
-    "photos": "صور المدينة"
+    "photos": "صور المدينة",
+    "overviewEyebrow": "نبذة عن المدينة",
+    "overviewTitle": "عن {{city}}",
+    "destinations": "وجهة",
+    "openMap": "فتح خريطة المدينة",
+    "loadMore": "عرض مزيد من الوجهات"
   },
   "cityDetails": {
     "eyebrow": "دليل المدينة",
@@ -66,7 +101,11 @@
     "about": "عن هذا المكان",
     "gallery": "صور المكان",
     "backToCity": "العودة إلى {{city}}",
-    "notFound": "المكان التراثي غير موجود"
+    "notFound": "المكان التراثي غير موجود",
+    "viewCity": "استكشف {{city}}",
+    "openMap": "فتح الاتجاهات",
+    "cityLabel": "المدينة",
+    "relatedTitle": "تابع الاستكشاف"
   },
   "places": {
     "ibrahimi-mosque": {

@@ -46,9 +46,44 @@
     "subtitle": "Every city holds distinct architecture, traditions, memories, and living cultural practices.",
     "explore": "Open city guide"
   },
+  "explore": {
+    "metaTitle": "Explore places",
+    "metaDescription": "Browse 295 cultural destinations across 12 Palestinian cities in English and Arabic.",
+    "eyebrow": "Culture Lens atlas",
+    "title": "Find a place. Discover its story.",
+    "subtitle": "Browse Palestinian cities and cultural destinations, then follow the stories, architecture, memory, and landscapes that give them meaning.",
+    "statsLabel": "Culture Lens collection at a glance",
+    "cities": "cities",
+    "destinations": "destinations",
+    "languages": "languages",
+    "cityDirectoryEyebrow": "Start with a city",
+    "cityDirectoryTitle": "City guides",
+    "cityDirectoryDescription": "Each city guide brings together its places, landmarks, and local stories in one clear route of discovery.",
+    "places": "places",
+    "destinationEyebrow": "Browse the collection",
+    "destinationTitle": "Explore destinations",
+    "destinationDescription": "Search by a place or city name, then narrow the collection by city or category.",
+    "searchLabel": "Search destinations",
+    "searchPlaceholder": "Search a destination or city",
+    "cityFilter": "City",
+    "categoryFilter": "Category",
+    "allCities": "All cities",
+    "allCategories": "All categories",
+    "results": "{{count}} destinations found",
+    "clearFilters": "Clear filters",
+    "viewPlace": "View place",
+    "loadMore": "Load more destinations",
+    "noResultsTitle": "No places found",
+    "noResultsDescription": "Try another name, city, or category—or clear the filters to browse the full collection."
+  },
   "city": {
     "heritagePlaces": "Heritage places",
-    "photos": "City photographs"
+    "photos": "City photographs",
+    "overviewEyebrow": "City profile",
+    "overviewTitle": "About {{city}}",
+    "destinations": "destinations",
+    "openMap": "Open city map",
+    "loadMore": "Load more destinations"
   },
   "cityDetails": {
     "eyebrow": "City guide",
@@ -66,7 +101,11 @@
     "about": "About this place",
     "gallery": "Place photographs",
     "backToCity": "Back to {{city}}",
-    "notFound": "Heritage place not found"
+    "notFound": "Heritage place not found",
+    "viewCity": "Explore {{city}}",
+    "openMap": "Open directions",
+    "cityLabel": "City",
+    "relatedTitle": "Continue exploring"
   },
   "places": {
     "ibrahimi-mosque": {
