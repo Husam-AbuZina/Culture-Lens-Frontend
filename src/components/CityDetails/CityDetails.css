@@ -221,6 +221,7 @@
   align-items: flex-start;
   justify-content: center;
   padding: clamp(32px, 5vw, 76px);
+  transition: background 360ms ease, color 360ms ease;
 }
 
 .cd-info h3 {
@@ -228,10 +229,12 @@
   font-size: clamp(2rem, 4vw, 4rem);
   font-weight: 500;
   letter-spacing: -0.035em;
+  transition: color 360ms ease, transform 360ms cubic-bezier(.2,.8,.2,1);
 }
 
 .cd-info p {
   max-width: 55ch;
+  transition: color 360ms ease;
 }
 
 .cd-more {
@@ -243,7 +246,15 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  transition: color 360ms ease, transform 360ms cubic-bezier(.2,.8,.2,1);
 }
+
+.cd-card:hover .cd-info { background: var(--ink); color: #fff; }
+.cd-card:hover .cd-info h3, .cd-card:hover .cd-info p, .cd-card:hover .cd-more { color: #fff; }
+.cd-card:hover .cd-info h3 { transform: translateY(-4px); }
+.cd-card:hover .cd-more { border-color: rgba(255,255,255,.8); transform: translateX(5px); }
+.cd-card:hover .cd-media img { filter: brightness(.72) saturate(.72); }
+[dir="rtl"] .cd-card:hover .cd-more { transform: translateX(-5px); }
 
 .cd-back {
   padding-top: 0;

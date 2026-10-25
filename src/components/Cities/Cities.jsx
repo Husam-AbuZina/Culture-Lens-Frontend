@@ -30,6 +30,7 @@ export default function Cities() {
               <h3>{localized(city.name, i18n.language)}</h3>
               <span className="city-chooser-action">{t("homeCities.openGuide")} <b>→</b></span>
             </div>
+            <span className="city-chooser-focus-title" aria-hidden="true">{localized(city.name, i18n.language)}</span>
           </Link>
         ))}
       </div>
