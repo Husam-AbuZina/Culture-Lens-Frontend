@@ -3,7 +3,7 @@ import assert from "node:assert/strict"
 import fs from "node:fs"
 import path from "node:path"
 import { fileURLToPath } from "node:url"
-import { getAllCities, getAllPlaces, getPlace } from "../src/data/cities.js"
+import { destinationCategories, getAllCities, getAllPlaces, getDestinationCategory, getPlace } from "../src/data/cities.js"
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..")
 const readJson = (file) => JSON.parse(fs.readFileSync(path.join(root, file), "utf8"))
@@ -55,6 +55,19 @@ test("English and Arabic provide matching translation structures", () => {
     })
 
   assert.deepEqual(keys(ar).sort(), keys(en).sort())
+})
+
+test("every destination belongs to one concise browse category", () => {
+  const categoryIds = new Set(destinationCategories.map((category) => category.id))
+
+  assert.equal(destinationCategories.length, 7)
+  for (const category of destinationCategories) {
+    assert.ok(category.name.en)
+    assert.ok(category.name.ar)
+  }
+  for (const place of getAllPlaces()) {
+    assert.ok(categoryIds.has(getDestinationCategory(place)), `missing browse category: ${place.id}`)
+  }
 })
 
 test("legal policies have matching bilingual sections and metadata", () => {
