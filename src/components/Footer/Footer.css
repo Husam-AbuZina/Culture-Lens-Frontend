@@ -55,7 +55,7 @@
 .footer-logo img {
   width: 54px;
   height: 54px;
-  filter: brightness(0) invert(1);
+  object-fit: contain;
 }
 
 .footer-brand p {
