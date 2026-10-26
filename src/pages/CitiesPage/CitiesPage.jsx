@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react"
 import { Link } from "react-router-dom"
 import { useTranslation } from "react-i18next"
-import { getAllCities, getAllPlaces, localized } from "../../data/cities"
+import { destinationCategories, getAllCities, getAllPlaces, getDestinationCategory, localized } from "../../data/cities"
 import PageMeta from "../../components/PageMeta/PageMeta"
 import "./CitiesPage.css"
 
@@ -18,9 +18,10 @@ export default function CitiesPage() {
   const language = i18n.language
 
   const categories = useMemo(
-    () => [...new Map(places.map((place) => [place.category.en, localized(place.category, language)])).entries()]
+    () => destinationCategories
+      .map((item) => [item.id, localized(item.name, language)])
       .sort(([, first], [, second]) => first.localeCompare(second, language)),
-    [language, places],
+    [language],
   )
 
   const results = useMemo(() => {
@@ -29,7 +30,7 @@ export default function CitiesPage() {
     return places.filter((place) => {
       const city = cities.find((item) => item.id === place.cityId)
       const matchesCity = !cityId || place.cityId === cityId
-      const matchesCategory = !category || place.category.en === category
+      const matchesCategory = !category || getDestinationCategory(place) === category
       const searchable = [
         localized(place.name, "en"),
         localized(place.name, "ar"),
